@@ -1,0 +1,53 @@
+<ion-menu [content]="content" [enabled]="isAuthenticated">
+
+  <ion-header text-center>
+    <ion-toolbar  color="customColor">
+      <ion-title class="custom-font" style="font-size: 2.1em;">মেনু</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content  *ngIf="isAuthenticated">
+
+    <ion-item margin-left>
+      <ion-thumbnail item-start>
+        <img src="assets/img/user_male.png">
+      </ion-thumbnail>
+      <h2 style="margin-top: 6px !important;
+      font-weight: bold;
+      font-size:1.2em; color: #000;">{{user.name}}</h2>
+      <p style="font-weight: 400;
+         font-size:0.9em;
+         color: #000;margin-top:6px!important;" *ngIf="user.authority == '1'">অ্যাডমিন</p>
+      <p style="font-weight: 400;
+         font-size:0.9em;
+         color: #000;margin-top:6px!important;" *ngIf="user.authority == '0'">সদস্য</p>
+
+      <button class="icons"  (click)="logout()">সাইন আউট</button>
+
+    </ion-item>
+
+    <ion-list>
+
+      <button ion-item
+              *ngFor="let page of pages"
+              class="custom-font item-hover"
+              (click)="openPage(page)"
+              menuClose>
+        <h2 style="font-size: 1.4em !important;
+             margin:8px 16px;font-weight: bold;
+             color: #000;">
+          {{page.title}}
+        </h2>
+
+        <ion-icon [name]="page.icon" item-right
+                  class="custom-icon"></ion-icon>
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content></ion-nav>
+
+

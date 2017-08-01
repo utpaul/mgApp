@@ -1,0 +1,55 @@
+<ion-content>
+
+  <div class="custom-content">
+
+    <div text-center margin-bottom>
+      <img [src]="profilePicture" width="120px" height="120px">
+    </div>
+
+    <div text-center class="login-box">
+      <form #FormLogin="ngForm" (ngSubmit)="login(FormLogin)">
+        <ion-row>
+          <ion-col>
+            <ion-list inset>
+
+              <ion-item>
+                <ion-icon name="md-call" item-left></ion-icon>
+                <ion-input [(ngModel)]="FormLogin.phone"
+                           placeholder="মোবাইল নাম্বার"
+                           name="phone"
+                           type="tel"
+                           pattern="01[7|6|5|1|9|8]{1}[0-9]{8}"
+                           required>
+                </ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-icon name="ios-lock-outline" item-left></ion-icon>
+                <ion-input [(ngModel)]="FormLogin.password"
+                           placeholder="পাসওয়ার্ড"
+                           name="password" type="password" required>
+                </ion-input>
+              </ion-item>
+
+            </ion-list>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col class="signup-col">
+            <button ion-button block
+                    color="customColor"
+                    class="submit-btn" full type="submit"
+                    [disabled]="!FormLogin.form.valid">
+                <p style="font-size: 18px; margin: -2px 0px 4px 0px !important;">প্রবেশ করুন</p>
+            </button>
+          </ion-col>
+        </ion-row>
+      </form>
+
+    </div>
+  </div>
+
+</ion-content>
+
+

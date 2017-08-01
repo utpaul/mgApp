@@ -1,0 +1,1 @@
+export const LOCAL_TOKEN_KEY = '_ZXY_MOBILE_TOKEN_KEY';

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="customColor">
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title class="custom-font"
+               style="font-size: 2.1em;">আমার নির্বাচিত গাছ
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list *ngIf="loadedList?.length > 0" style="margin-top: 10px;">
+
+    <ion-item *ngFor="let eachValue of loadedList; let i = index">
+      <ion-thumbnail item-start>
+        <img src="{{imageUrl + eachValue.photo}}">
+      </ion-thumbnail>
+      <h2 text-wrap>বাংলা নামঃ {{eachValue.banglaName}}</h2>
+      <h2 text-wrap>ইংরেজি নামঃ {{eachValue.englishName}}</h2>
+      <h2 text-wrap>বৈজ্ঞানিক নামঃ {{eachValue.scientificName}}</h2>
+      <h2 text-wrap>রোপন বা বপন সময়ঃ {{eachValue.seedingTime}}</h2>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

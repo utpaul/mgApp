@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-navbar color="customColor">
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-buttons end>
+      <button ion-button icon-only
+              (click)="postingData()">
+        <ion-icon name="md-send"></ion-icon>
+      </button>
+
+    </ion-buttons>
+
+    <ion-title class="custom-font"
+               style="font-size: 2.1em;">গাছ নির্বাচন
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list>
+  <ion-item>
+    <ion-label style="color:#000 !important;">ঋতু</ion-label>
+    <ion-select [(ngModel)]="searchElement.season" interface="popover">
+      <ion-option value="1">গ্রীষ্মকালীন</ion-option>
+      <ion-option value="2" >শীতকালীন</ion-option>
+      <ion-option value="3" >বারোমাসি</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label style="color:#000 !important;">ধরণ</ion-label>
+    <ion-select [(ngModel)]="searchElement.type" interface="popover">
+      <ion-option value="1">ফুল</ion-option>
+      <ion-option value="2">ফল</ion-option>
+      <ion-option value="3">সবজি</ion-option>
+      <ion-option value="4">ওষধি</ion-option>
+    </ion-select>
+  </ion-item>
+
+</ion-list>
+
+  <button ion-button block
+          color="customColor"
+          class="submit-btn"
+          type="button"
+          [disabled]="searchElement.type == ' ' || searchElement.season == ' '"
+          (click)="submitValue()" style="font-size: 20px;">খুঁজুন
+  </button>
+
+  <ion-list *ngIf="loadedList?.length > 0" style="margin-top: 10px;">
+
+    <ion-item *ngFor="let eachValue of loadedList; let i = index"
+            [ngClass]="{'section-active': eachValue.flag != '1', 'section': eachValue.flag == '1'}">
+      <ion-thumbnail item-start>
+        <img src="{{imageUrl + eachValue.photo}}">
+      </ion-thumbnail>
+      <h2 text-wrap>বাংলা নামঃ {{eachValue.banglaName}}</h2>
+      <h2 text-wrap>ইংরেজি নামঃ {{eachValue.englishName}}</h2>
+      <h2 text-wrap>বৈজ্ঞানিক নামঃ {{eachValue.scientificName}}</h2>
+      <h2 text-wrap>রোপন বা বপন সময়ঃ {{eachValue.seedingTime}}</h2>
+
+      <ion-row no-padding>
+
+        <ion-col *ngIf="eachValue.flag != '1' " text-left>
+          <button ion-button small color="customColor"
+                  (click)="addToSelectedList(i)" text-wrap>
+            বাগানের জন্য নির্বাচন
+          </button>
+        </ion-col>
+
+        <ion-col *ngIf="eachValue.flag == '1' " text-left>
+          <button ion-button small color="customColor"
+                  (click)="addToSelectedList(i)" text-wrap>
+            বাগানের জন্য নির্বাচিত
+          </button>
+        </ion-col>
+
+        <ion-col text-right>
+          <button ion-button small color="customColor" text-wrap>
+            চারাপ্রাপ্তি
+          </button>
+        </ion-col>
+
+      </ion-row>
+
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

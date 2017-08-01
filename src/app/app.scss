@@ -1,0 +1,83 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+.custom-image{
+  border-radius: 50%;display: block;
+  margin-left: auto;margin-right: auto;
+  border-radius: 50%;
+}
+
+.custom-margin{
+  margin-top: -6px;
+  margin-bottom: 6px;
+}
+
+.icons {
+  background: #00953B;
+  color: white;
+  padding: 8px;
+  font-size: 1em;
+  margin-top: 0px !important;
+  text-align: center;
+}
+
+// item hover effect
+.item-md{
+  padding-left: 0px;
+}
+
+.item-hover .item-inner > ion-icon{
+  color: #00953B !important;
+}
+
+.item-hover:hover .item-inner > ion-icon{
+  color: #FFFFFF !important;
+}
+
+.item-hover .item-inner .input-wrapper> ion-label > h2{
+  color: #000 !important;
+}
+
+.item-hover:hover .item-inner .input-wrapper> ion-label > h2{
+  color: #FFFFFF !important;
+}
+
+.item-hover:hover{
+  background:#00953B !important;
+  color: #FFFFFF;
+}
+
+// button-bar hover modify
+.bar-button .button-inner > ion-icon{
+  color: #FFFFFF;
+}
+
+.bar-button:hover .button-inner > ion-icon{
+  color: #FFFFFF;
+}
+
+.custom-icon{
+  font-size: 35px !important;
+}
+
+.scroll-content {
+  overflow-y: auto;
+}
+
+.custom-loading{
+  color: #00953B !important;
+}
