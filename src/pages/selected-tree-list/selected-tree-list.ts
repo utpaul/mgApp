@@ -12,6 +12,7 @@ export class SelectedTreeListPage {
 
   private loadedList =[];
   private imageUrl:any;
+  private detailsListPage = 'DetailsListPage';
 
   constructor(private l2nHttp:L2nHttp) {
     this.imageUrl =API_CONFIG.misBase;

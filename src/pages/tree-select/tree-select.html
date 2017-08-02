@@ -80,8 +80,10 @@
         </ion-col>
 
         <ion-col text-right>
-          <button ion-button small color="customColor" text-wrap>
-            চারাপ্রাপ্তি
+          <button ion-button small color="customColor"
+                  [navPush]="detailsListPage"
+                  [navParams]="eachValue" text-wrap>
+            বিস্তারিত
           </button>
         </ion-col>
 

@@ -14,11 +14,11 @@ export class TreeSelectPage {
   private loadedList =[];
   private imageUrl:any;
   public selectedLoadedList =[];
+  private detailsListPage = 'DetailsListPage';
 
   constructor(private l2nHttp:L2nHttp) {
     this.imageUrl =API_CONFIG.misBase;
   }
-
 
   submitValue(){
 
@@ -27,6 +27,13 @@ export class TreeSelectPage {
       data => {
         this.loadedList =data;
         console.log(this.loadedList);
+        for(var j=0; j<this.loadedList.length;j++){
+
+            if(this.loadedList[j].flag == '1'){
+              this.selectedLoadedList.push(this.loadedList[j]);
+            }
+        }
+
       },
       err => {}
     );
@@ -57,6 +64,7 @@ export class TreeSelectPage {
   }
 
   postingData(){
+
     this.l2nHttp.postRequest('selected-fruit-list-post',this.selectedLoadedList,'Saving data').then(
       data => {
         console.log(data);

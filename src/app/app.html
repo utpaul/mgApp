@@ -17,10 +17,11 @@
       font-size:1.2em; color: #000;">{{user.name}}</h2>
       <p style="font-weight: 400;
          font-size:0.9em;
-         color: #000;margin-top:6px!important;" *ngIf="user.authority == '1'">অ্যাডমিন</p>
+         color: #000;" class="custom-margin"
+         *ngIf="user.authority == '1'">অ্যাডমিন</p>
       <p style="font-weight: 400;
          font-size:0.9em;
-         color: #000;margin-top:6px!important;" *ngIf="user.authority == '0'">সদস্য</p>
+         color: #000;" class="custom-margin" *ngIf="user.authority == '0'">সদস্য</p>
 
       <button class="icons"  (click)="logout()">সাইন আউট</button>
 

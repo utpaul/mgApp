@@ -14,7 +14,9 @@
 
   <ion-list *ngIf="loadedList?.length > 0" style="margin-top: 10px;">
 
-    <ion-item *ngFor="let eachValue of loadedList; let i = index">
+    <ion-item *ngFor="let eachValue of loadedList; let i = index"
+              [navPush]="detailsListPage"
+              [navParams]="eachValue">
       <ion-thumbnail item-start>
         <img src="{{imageUrl + eachValue.photo}}">
       </ion-thumbnail>

@@ -1,15 +1,5 @@
-<ion-header>
-  <ion-navbar color="customColor">
-    <button ion-button icon-only menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title class="custom-font"
-               style="font-size: 2.1em;">তথ্য সহায়তা
-    </ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-<ion-content padding>
-
-</ion-content>
+<ion-tabs selectedIndex="1"
+          color="customColor">
+  <ion-tab tabIcon="ios-bulb-outline" tabTitle="সমাধান সমুহ" [root]="tab2"></ion-tab>
+  <ion-tab tabIcon="ios-help-circle-outline" tabTitle="সমস্যা সমুহ" [root]="tab1" ></ion-tab>
+</ion-tabs>
