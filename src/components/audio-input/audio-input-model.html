@@ -1,0 +1,22 @@
+<ion-content padding-horizontal>
+
+  <ion-item *ngIf="timer">
+
+    <ion-thumbnail item-start>
+      <img src="assets/img/microPhone.png">
+    </ion-thumbnail>
+
+    <div text-center>
+      <ion-spinner name="dots" color="customColor"></ion-spinner>
+      <h3 class="custom-font"
+          *ngIf="timeInSeconds && timeInSeconds > 0"
+          style="font-size: 1.2em;">{{timer.displayTime}}
+      </h3>
+    </div>
+    <button ion-button item-end color="customColor"
+            class="custom-font"
+            style="font-size: 0.9em;
+            padding-top: 6px;" (click)="stop()">Stop</button>
+
+  </ion-item>
+</ion-content>

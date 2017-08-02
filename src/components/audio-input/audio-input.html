@@ -1,0 +1,28 @@
+<div text-center>
+  <img src="assets/microPhone.png"
+       style="border-radius: 50%;display: block;
+       margin-left: auto;margin-right: auto;"
+       (click)="record()"
+       width="100" height="100"/>
+  <ng-content></ng-content>
+</div>
+
+<ion-item *ngIf="file">
+  <ion-thumbnail item-start>
+    <img src="assets/logo.png">
+  </ion-thumbnail>
+  <h3 class="custom-font"
+      style="color:#000; margin-top: 10px;">{{title}}
+  </h3>
+  <button *ngIf="!isPlaying" ion-button icon-only icon-left clear type="button" (click)="play()">
+    <ion-icon name="md-play"></ion-icon>
+  </button>
+  <button *ngIf="isPlaying" ion-button icon-only icon-left clear type="button" (click)="pause()">
+    <ion-icon name="md-pause"></ion-icon>
+  </button>
+
+  <button item-end [disabled]="!isPlaying" ion-button icon-only icon-right clear type="button" (click)="stop()">
+    <ion-icon name="md-square"></ion-icon>
+  </button>
+
+</ion-item>

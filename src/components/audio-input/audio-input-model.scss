@@ -1,0 +1,21 @@
+.ios,.md{
+  audio-input-model{
+
+    ion-item{
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      padding: 10px;
+    }
+
+    .scroll-content {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    ion-spinner{
+      font-size: 30px !important;
+    }
+  }
+}

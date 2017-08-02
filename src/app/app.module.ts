@@ -17,12 +17,15 @@ import { Geolocation } from '@ionic-native/geolocation';
 import {Camera} from "@ionic-native/camera";
 import {File} from '@ionic-native/file';
 import {ImagePicker} from "@ionic-native/image-picker";
+import {MediaPlugin} from "ionic-native";
+import {AudioRecordingModal} from "../components/audio-input/audio-recording";
 
 declare var require: any;
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    AudioRecordingModal
   ],
 
   imports: [
@@ -33,7 +36,8 @@ declare var require: any;
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp,
+    AudioRecordingModal
   ],
   providers: [
 
@@ -50,7 +54,8 @@ declare var require: any;
     NetworkConnectionProvider,
     LocationAccuracy,
     Camera,
-    ImagePicker
+    ImagePicker,
+    MediaPlugin
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 
