@@ -30,6 +30,12 @@ export const APP_MENUS = {
         cache: false,
         icon: 'ios-information-circle-outline',
         component: 'HelpfulGardenPage'
+      },
+      {
+        label: 'সেটিংস',
+        cache: false,
+        icon: 'ios-settings-outline',
+        component: 'SettingsPage'
       }
   ]
 

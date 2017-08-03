@@ -11,56 +11,76 @@
 
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
   <form [formGroup]="registrationForm" novalidate (ngSubmit)="submitValue()">
 
     <ion-list padding-horizontal>
-      <ion-item margin-top
-                padding-horizontal
-                class="custom-border-color">
-        <ion-label>সমস্যার বিষয়</ion-label>
-        <ion-select okText="ওকে" cancelText="বাতিল"
-                    [selectOptions]="selectOptions"
-                    formControlName="category">
-          <ion-option *ngFor="let eachColor of SELECT_SUBJECT_LABEL"
-                      [value]="eachColor.value">
-            <p style="font-size: 22px !important;">{{eachColor.text}}</p>
-          </ion-option>
-        </ion-select>
-      </ion-item>
 
-      <ion-item margin-top
-                padding-horizontal
-                class="custom-border-color">
-        <ion-label>যেখানে সমস্যা</ion-label>
-        <ion-select okText="ওকে" cancelText="বাতিল"
-                    [selectOptions]="selectOptions"
-                    formControlName="stage">
-          <ion-option *ngFor="let eachColor of SELECT_STAGE_LABEL"
-                      [value]="eachColor.value">
-            <p style="font-size: 22px !important;">{{eachColor.text}}</p>
-          </ion-option>
-        </ion-select>
-      </ion-item>
+      <ion-item-group>
+        <ion-item margin-top
+                  padding-horizontal
+                  class="custom-border-color">
+          <ion-label>সমস্যার বিষয়</ion-label>
+          <ion-select okText="ওকে" cancelText="বাতিল"
+                      [selectOptions]="selectOptions"
+                      formControlName="category">
+            <ion-option *ngFor="let eachColor of SELECT_SUBJECT_LABEL"
+                        [value]="eachColor.value">
+              <p style="font-size: 22px !important;">{{eachColor.text}}</p>
+            </ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-item-group>
+
+      <ion-item-group>
+
+        <ion-item margin-top
+                  padding-horizontal
+                  class="custom-border-color">
+          <ion-label>যেখানে সমস্যা</ion-label>
+          <ion-select okText="ওকে" cancelText="বাতিল"
+                      [selectOptions]="selectOptions"
+                      formControlName="stage">
+            <ion-option *ngFor="let eachColor of SELECT_STAGE_LABEL"
+                        [value]="eachColor.value">
+              <p style="font-size: 22px !important;">{{eachColor.text}}</p>
+            </ion-option>
+          </ion-select>
+        </ion-item>
+
+      </ion-item-group>
 
     </ion-list>
 
     <ion-grid>
       <ion-row>
-        <ion-col col-6 *ngFor="let photo of photoLists; let id = index">
+        <ion-col col-4 *ngFor="let photo of photoLists; let id = index">
           <ion-card class="releative">
             <ion-icon  ios="ios-add-circle" md="md-add-circle"
                        class="deleteIcon"
                        (click)="removePhotos(id)"
                        *ngIf="id != (photoLists?.length - 1) "></ion-icon>
             <img [src]="photo" *ngIf="photo"
-                 (click)="addMedia(id)"/>
+                 (click)="addMedia(id)" width="100px"
+                 height="100px"/>
           </ion-card>
         </ion-col>
       </ion-row>
 
     </ion-grid>
+
+
+    <div text-center margin>
+
+      <audio-input duration="120"
+                   title="আইটেমটি প্লে করুন"
+                   formControlName="audio">
+        <span>বলুন</span>
+      </audio-input>
+
+    </div>
+
 
     <ion-item-group>
       <div text-left style="margin-bottom: 8px;">বিবরণ</div>
@@ -75,8 +95,8 @@
               color="customColor"
               type="submit"
               style="font-size: 1.5em;"
-              [disabled]="!registrationForm.valid"
-              class="custom-font">পাঠান
+              [disabled]="!registrationForm.valid">
+        <span style="margin-top: -3px !important;">পাঠান</span>
       </button>
     </div>
 

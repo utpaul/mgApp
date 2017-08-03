@@ -10,7 +10,7 @@ import {ImagePicker} from "@ionic-native/image-picker";
 @IonicPage()
 @Component({
   selector: 'page-problem-form',
-  templateUrl: 'problem-form.html',
+  templateUrl: 'problem-form.html'
 })
 export class ProblemFormPage implements OnInit{
 
@@ -77,9 +77,7 @@ export class ProblemFormPage implements OnInit{
     this.registrationForm = this.formBuilder.group({
       category: ['', [Validators.required]],
       stage: ['',[Validators.required]],
-      photos: this.formBuilder.array([
-        this.initPhotos()
-      ]),
+      images: this.formBuilder.array([]),
       audio:[''],
       description: [''],
       latitude:[''],
@@ -109,12 +107,6 @@ export class ProblemFormPage implements OnInit{
       });
     }
 
-  }
-
-  initPhotos(){
-    return this.formBuilder.group({
-      images:['']
-    });
   }
 
   removePhotos(i: number) {
@@ -149,7 +141,10 @@ export class ProblemFormPage implements OnInit{
 
   submitValue(){
 
-    this.l2nHttp.postRequest('new-problem-save',this.registrationForm.value, 'ডেটা সংরক্ষণ হচ্ছে...').then(
+    let formData = this.registrationForm.value;
+    formData.images = this.photoLists;
+
+    this.l2nHttp.postRequest('new-problem-save',formData, 'ডেটা সংরক্ষণ হচ্ছে...').then(
       data => {
         console.log('success');
         this.navCtrl.popToRoot();
@@ -202,6 +197,8 @@ export class ProblemFormPage implements OnInit{
 
     this.imagePicker.getPictures(options).then((results) => {
 
+      this.photoLists.reverse();
+
       for (var i = 0; i < results.length; i++) {
         this.photoLists.push(results[i]);
       }
@@ -216,7 +213,7 @@ export class ProblemFormPage implements OnInit{
 
     var options = {
       quality: 100,
-      destinationType: this.camera.DestinationType.FILE_URI,
+      destinationType: this.camera.DestinationType.DATA_URL,
       sourceType: this.camera.PictureSourceType.CAMERA,
       allowEdit: true,
       targetWidth: 164,
@@ -227,10 +224,9 @@ export class ProblemFormPage implements OnInit{
       saveToPhotoAlbum: false
     };
     this.camera.getPicture(options).then((imageData) => {
-
-      this.photoLists.push(imageData);
       this.photoLists.reverse();
-
+      this.photoLists.push('data:image/jpeg;base64,' + imageData);
+      this.photoLists.reverse();
     }, (err) => {
       // Handle error
     });

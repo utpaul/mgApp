@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage} from 'ionic-angular';
+import {L2nHttp} from "../../providers/l2n-http";
 
-/**
- * Generated class for the ProblemSoluationPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-problem-soluation',
@@ -14,11 +9,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProblemSoluationPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private loadedData =[];
+
+  constructor(private l2nHttp:L2nHttp) {
+
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ProblemSoluationPage');
+  ionViewDidEnter(){
+
+    this.l2nHttp.getRequest('solution-lists','ডাটা লোড করা হচ্ছে...').then(
+      data => {
+        this.loadedData =data;
+        console.log(this.loadedData);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
   }
 
 }

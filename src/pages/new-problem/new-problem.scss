@@ -1,3 +1,36 @@
-page-new-problem {
+.ios,.md{
+
+  $categories: (
+    CATEGORY_VEGETABLE: #FED035,
+    CATEGORY_FLOWER: #AC282B,
+    CATEGORY_FRUIT: #8E8D93,
+    CATEGORY_CACTUS: #FE4C52,
+    CATEGORY_OTHERS: #FD8B2D
+  );
+
+  @function auxiliary-categories() {
+    @return map-remove($categories);
+  }
+
+  page-new-problem {
+
+    @each $track, $value in auxiliary-categories() {
+      ion-item-sliding[track=#{$track}] ion-label {
+        border-left: 2px solid $value;
+        padding-left: 10px;
+      }
+    }
+
+    h2{
+      color: #000;
+      font-size: 22px;
+    }
+
+    ion-list-header,ion-label{
+      color: #000;
+      font-size: 17px;
+    }
+
+  }
 
 }

@@ -11,17 +11,84 @@
 
 </ion-header>
 
-
 <ion-content padding>
 
-  <ion-fab right bottom>
+  <ion-list *ngIf="loadedData.lists?.length > 0 && !adminFlag">
+    <ion-item-group *ngFor="let item of loadedData.lists">
 
+      <ion-item-divider sticky>
+        <ion-label >
+          <span style="color:#000 !important;">
+            সমস্যা তারিখঃ {{item.entry_time}}
+          </span>
+        </ion-label>
+      </ion-item-divider>
+
+      <ion-item-sliding *ngFor="let session of item.problems"
+                        [attr.track]="session.tracks">
+
+        <button ion-item>
+          <h2 style="font-size:20px !important;">সমস্যা নম্বরঃ {{session.id}}</h2>
+          <h2 style="font-size:20px !important;">সমস্যার বিষয়ঃ {{session.category_text}}</h2>
+          <h2 style="font-size:20px !important;">যেখানে সমস্যাঃ {{session.stage_text}}</h2>
+        </button>
+
+        <ion-item-options>
+          <button ion-button icon-left
+                  (click)="imageShow(session.imageCount,session.id)">
+            <ion-icon name="ios-images-outline"></ion-icon>
+            {{session.imageCount}}
+          </button>
+          <button ion-button icon-left color="secondary"
+                  (click)="recordedAudio(session.id)">
+            <ion-icon name="ios-arrow-dropright-circle-outline"></ion-icon>
+            {{session.record}}
+          </button>
+        </ion-item-options>
+
+      </ion-item-sliding>
+
+    </ion-item-group>
+
+  </ion-list>
+
+  <ion-list *ngIf="loadedData.lists?.length > 0 && adminFlag">
+
+    <ion-item-group *ngFor="let item of loadedData.lists">
+
+      <ion-item-divider sticky>
+        <ion-label text-center>
+          <span style="color:#000 !important;">
+            সমস্যা তারিখঃ {{item.entry_time}}
+          </span>
+        </ion-label>
+      </ion-item-divider>
+
+      <ion-item-sliding *ngFor="let session of item.problems"
+                        [attr.track]="session.tracks">
+        <button ion-item>
+          <h2 style="font-size:20px !important;">সমস্যা নম্বরঃ {{session.id}}</h2>
+          <h2 style="font-size:20px !important;">সমস্যার বিষয়ঃ {{session.category_text}}</h2>
+          <h2 style="font-size:20px !important;">যেখানে সমস্যাঃ {{session.stage_text}}</h2>
+          <button ion-button clear item-end>বিস্তারিত</button>
+        </button>
+
+      </ion-item-sliding>
+
+    </ion-item-group>
+
+  </ion-list>
+
+  <ion-list-header *ngIf="loadedData.lists?.length == 0">
+    কোন সমস্যা খুঁজে পাওয়া যায় নি
+  </ion-list-header>
+
+  <ion-fab right bottom>
     <button ion-fab color="customColor"
             [navPush]="problemFormPage">
-      <ion-icon name="add">
+      <ion-icon name="ios-paper-outline">
       </ion-icon>
     </button>
-
   </ion-fab>
 
 </ion-content>

@@ -47,7 +47,29 @@ $colors: (
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
+$action-sheet-md-background:#FFF;
+$action-sheet-md-title-color: #00953B;
+$action-sheet-md-title-font-size: 1.2em;
+$action-sheet-md-button-text-color:#00953B;
+$action-sheet-md-text-align:center;
+$action-sheet-md-button-background-activated: #ffe6e6;
 
+$modal-inset-min-width:300px;
+$modal-inset-min-height-small:300px;
+$modal-inset-min-height-large:300px;
+$modal-inset-width:300px;
+$modal-inset-height-small:300px;
+$modal-inset-height-large:300px;
+
+$spinner-md-ios-color:#00953B;
+$spinner-md-bubbles-color:#00953B;
+$spinner-md-circles-color:#00953B;
+$spinner-md-crescent-color:#00953B;
+$spinner-md-dots-color:#00953B;
+
+$badge-font-size:1.5rem;
+
+$alert-md-message-font-size: 1.4em;
 
 
 // App Windows Variables
