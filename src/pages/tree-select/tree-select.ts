@@ -21,7 +21,6 @@ export class TreeSelectPage {
   }
 
   submitValue(){
-
     this.loadedList =[];
     this.l2nHttp.postRequest('fruit-search',this.searchElement,'ডাটা লোড করা হচ্ছে...').then(
       data => {
