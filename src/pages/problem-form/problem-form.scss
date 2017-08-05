@@ -8,10 +8,15 @@
       border: 1px solid #dedede;
     }
 
+    .col-4{
+      max-width: 100px !important;
+      max-height:100px !important;
+    }
+
     .deleteIcon {
       position: absolute !important;
       color: red !important;
-      margin-left: 70% !important;
+      margin-left: 72% !important;
       transform: rotate(45deg);
     }
     .deleteIcon:before {

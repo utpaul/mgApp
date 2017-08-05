@@ -62,8 +62,7 @@
                        (click)="removePhotos(id)"
                        *ngIf="id != (photoLists?.length - 1) "></ion-icon>
             <img [src]="photo" *ngIf="photo"
-                 (click)="addMedia(id)" width="100px"
-                 height="100px"/>
+                 (click)="addMedia(id)"/>
           </ion-card>
         </ion-col>
       </ion-row>

@@ -110,8 +110,6 @@ export class ProblemFormPage implements OnInit{
   }
 
   removePhotos(i: number) {
-    const control = <FormArray>this.registrationForm.controls['photos'];
-    control.removeAt(i);
 
     let confirm = this
       .alertCtrl
@@ -189,8 +187,8 @@ export class ProblemFormPage implements OnInit{
 
     var options = {
       maximumImagesCount: 10,
-      width: 164,
-      height: 164,
+      width: 592,
+      height: 396,
       quality: 100,
       outputType: 0
     };
@@ -216,8 +214,8 @@ export class ProblemFormPage implements OnInit{
       destinationType: this.camera.DestinationType.DATA_URL,
       sourceType: this.camera.PictureSourceType.CAMERA,
       allowEdit: true,
-      targetWidth: 164,
-      targetHeight:164,
+      targetWidth: 592,
+      targetHeight:396,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
       correctOrientation: true,
