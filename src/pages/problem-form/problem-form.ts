@@ -6,6 +6,7 @@ import {LocationAccuracy} from "@ionic-native/location-accuracy";
 import { Camera } from '@ionic-native/camera';
 import {L2nHttp} from "../../providers/l2n-http";
 import {ImagePicker} from "@ionic-native/image-picker";
+import {File} from '@ionic-native/file';
 
 @IonicPage()
 @Component({
@@ -30,7 +31,8 @@ export class ProblemFormPage implements OnInit{
               private alertCtrl : AlertController,
               private l2nHttp:L2nHttp,
               public navCtrl: NavController,
-              public imagePicker:ImagePicker) {
+              public imagePicker:ImagePicker,
+              private fs: File) {
 
   }
 
@@ -198,7 +200,13 @@ export class ProblemFormPage implements OnInit{
       this.photoLists.reverse();
 
       for (var i = 0; i < results.length; i++) {
-        this.photoLists.push(results[i]);
+
+        this.fs.readAsDataURL('file:///', results[i].replace(/^\/+/g, '')).then(
+          data => this.photoLists.push('data:image/jpeg;base64,' +results[i]),
+          err => alert(err)
+        );
+
+
       }
 
       this.photoLists.reverse();
