@@ -192,24 +192,15 @@ export class ProblemFormPage implements OnInit{
       width: 592,
       height: 396,
       quality: 100,
-      outputType: 0
+      outputType: 1
     };
 
     this.imagePicker.getPictures(options).then((results) => {
 
-      this.photoLists.reverse();
-
-      for (var i = 0; i < results.length; i++) {
-
-        this.fs.readAsDataURL('file:///', results[i].replace(/^\/+/g, '')).then(
-          data => this.photoLists.push('data:image/jpeg;base64,' +results[i]),
-          err => alert(err)
-        );
-
-
+      for (let i = 0; i < results.length; i++) {
+          this.photoLists.push('data:image/jpeg;base64,' +results[i])
       }
 
-      this.photoLists.reverse();
     }, (err) => { });
 
 
