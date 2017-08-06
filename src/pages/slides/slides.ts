@@ -8,6 +8,7 @@ import {ScreenOrientation} from "@ionic-native/screen-orientation";
   priority: 'high'
 })
 
+
 @Component({
   selector: 'page-slides',
   templateUrl: 'slides.html',

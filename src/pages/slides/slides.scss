@@ -3,7 +3,6 @@
 
     ion-content {
       background-color: #EFEFEF !important;
-
     }
 
     .diag {
@@ -11,16 +10,12 @@
       z-index:1;
       width:100%;
       top: 0;
-      height: 66%;
+      height:100%;
     }
 
     ion-icon {
       margin-top:40%;
       font-size:7em;
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
     }
 
     h2 {
@@ -58,6 +53,14 @@
     .scroll-content {
       overflow-y: auto;
     }
+
+    //ion-slide{
+    //  background-image: url("assets/img/whitebg.svg");
+    //  background-repeat: no-repeat;
+    //  background-position: center;
+    //  background-attachment: fixed;
+    //}
+
   }
 }
 

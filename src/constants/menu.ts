@@ -2,13 +2,13 @@ export const APP_MENUS = {
 
   sidebar: [
       {
-        label: 'গাছ নির্বাচন',
+        label: 'গাছ বা ফসল নির্বাচন',
         cache: false,
         icon: 'ios-qr-scanner-outline',
         component: 'TreeSelectPage'
       },
       {
-        label: 'আমার নির্বাচিত গাছ',
+        label: 'আমার লাগানো গাছ বা ফসল',
         cache: false,
         icon: 'ios-checkmark-circle-outline',
         component: 'SelectedTreeListPage'

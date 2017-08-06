@@ -13,7 +13,7 @@
     </ion-buttons>
 
     <ion-title class="custom-font"
-               style="font-size: 2.1em;">গাছ নির্বাচন
+               style="font-size: 2.1em;">গাছ বা ফসল নির্বাচন
     </ion-title>
   </ion-navbar>
 
@@ -48,7 +48,7 @@
           class="submit-btn"
           type="button"
           [disabled]="searchElement.type == ' ' || searchElement.season == ' '"
-          (click)="submitValue()" style="font-size: 20px;">খুঁজুন
+          (click)="submitValue()" style="font-size: 20px; margin-top:-3px;">খুঁজুন
   </button>
 
   <ion-list *ngIf="loadedList?.length > 0" style="margin-top: 10px;">
@@ -65,25 +65,27 @@
 
       <ion-row no-padding>
 
-        <ion-col *ngIf="eachValue.flag != '1' " text-left>
-          <button ion-button small color="customColor"
-                  (click)="addToSelectedList(i)" text-wrap>
-            বাগানের জন্য নির্বাচন
-          </button>
-        </ion-col>
 
-        <ion-col *ngIf="eachValue.flag == '1' " text-left>
-          <button ion-button small color="customColor"
-                  (click)="addToSelectedList(i)" text-wrap>
-            বাগানের জন্য নির্বাচিত
-          </button>
-        </ion-col>
-
-        <ion-col text-right>
-          <button ion-button small color="customColor"
+        <ion-col text-left>
+          <button ion-button color="customColor"
                   [navPush]="detailsListPage"
                   [navParams]="eachValue" text-wrap>
-            বিস্তারিত
+            <span>বিস্তারিত</span>
+          </button>
+        </ion-col>
+
+        <ion-col *ngIf="eachValue.flag != '1' " text-right>
+          <button ion-button color="customColor"
+                  (click)="addToSelectedList(i)" text-wrap>
+            <span>বাগানের জন্য লাগাতে চাই</span>
+
+          </button>
+        </ion-col>
+
+        <ion-col *ngIf="eachValue.flag == '1' " text-right>
+          <button ion-button color="customColor"
+                  (click)="addToSelectedList(i)" text-wrap>
+            <span>বাগানের জন্য নির্বাচিত</span>
           </button>
         </ion-col>
 
