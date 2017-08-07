@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import {IonicPage, NavController, ViewController} from 'ionic-angular';
 import {L2nHttp} from "../../providers/l2n-http";
 import {API_CONFIG} from "../../constants/api";
 
@@ -16,7 +16,9 @@ export class TreeSelectPage {
   public selectedLoadedList =[];
   private detailsListPage = 'DetailsListPage';
 
-  constructor(private l2nHttp:L2nHttp) {
+  constructor(private l2nHttp:L2nHttp,
+              private navCtrl: NavController,
+              public viewCtrl: ViewController) {
     this.imageUrl =API_CONFIG.misBase;
   }
 
@@ -41,24 +43,25 @@ export class TreeSelectPage {
 
   addToSelectedList(i){
 
-    if(this.loadedList[i].flag == '0'){
-
-      this.loadedList[i].flag = '1';
-      this.selectedLoadedList.push(this.loadedList[i]);
-      console.log(this.selectedLoadedList);
-
-    }else {
-
-      this.loadedList[i].flag = '0';
-
-      const position = this.selectedLoadedList.findIndex((memberEl:any) =>{
-        return memberEl.englishName == this.loadedList[i].englishName;
-      })
-
-      this.selectedLoadedList.splice(position, 1);
-
-      console.log(this.selectedLoadedList);
-    }
+    this.navCtrl.push('TreeSelectedFormPage',this.loadedList[i]);
+    // if(this.loadedList[i].flag == '0'){
+    //
+    //   this.loadedList[i].flag = '1';
+    //   this.selectedLoadedList.push(this.loadedList[i]);
+    //   console.log(this.selectedLoadedList);
+    //
+    // }else {
+    //
+    //   this.loadedList[i].flag = '0';
+    //
+    //   const position = this.selectedLoadedList.findIndex((memberEl:any) =>{
+    //     return memberEl.englishName == this.loadedList[i].englishName;
+    //   })
+    //
+    //   this.selectedLoadedList.splice(position, 1);
+    //
+    //   console.log(this.selectedLoadedList);
+    // }
 
   }
 

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {IonicPage, Platform, ActionSheetController, AlertController, NavController} from 'ionic-angular';
-import {FormGroup, FormBuilder, Validators, FormArray} from "@angular/forms";
+import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 import { Geolocation } from '@ionic-native/geolocation';
 import {LocationAccuracy} from "@ionic-native/location-accuracy";
 import { Camera } from '@ionic-native/camera';
@@ -197,9 +197,11 @@ export class ProblemFormPage implements OnInit{
 
     this.imagePicker.getPictures(options).then((results) => {
 
+      this.photoLists.reverse();
       for (let i = 0; i < results.length; i++) {
-          this.photoLists.push('data:image/jpeg;base64,' +results[i])
+          this.photoLists.push('data:image/jpeg;base64,' + results[i])
       }
+      this.photoLists.reverse();
 
     }, (err) => { });
 
@@ -228,5 +230,4 @@ export class ProblemFormPage implements OnInit{
       // Handle error
     });
   }
-
 }
