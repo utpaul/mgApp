@@ -1,0 +1,100 @@
+<ion-header>
+
+  <ion-navbar color="customColor">
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title class="custom-font"
+               style="font-size: 2.1em;">গাছ বা ফসল নির্বাচন
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding-horizontal>
+
+  <ion-card>
+    <img src="{{imageUrl + loadData.photo}}"/>
+    <ion-card-content>
+      <ion-card-title text-center>
+        বাংলা নামঃ {{loadData.banglaName}}
+      </ion-card-title>
+    </ion-card-content>
+  </ion-card>
+
+
+  <form [formGroup]="selectedTreeFilterForm" novalidate
+        (ngSubmit)="submitValue()">
+
+    <ion-item-group>
+
+      <ion-item margin-top
+                padding-horizontal
+                class="custom-border-color">
+        <ion-label>লাগানো তারিখ</ion-label>
+        <ion-datetime displayFormat="MMM DD YYYY"
+                      formControlName="dateOfSeeding"
+                      placeholder="তারিখ প্রবেশ করুন">
+        </ion-datetime>
+      </ion-item>
+
+    </ion-item-group>
+
+    <ion-item-group>
+      <ion-item margin-top
+                padding-horizontal
+                class="custom-border-color">
+        <ion-label>লাগানোর ধরণ</ion-label>
+        <ion-select okText="ওকে" cancelText="বাতিল"
+                    [selectOptions]="selectOptions"
+                    formControlName="typeOfSeeding">
+          <ion-option *ngFor="let eachColor of type"
+                      [value]="eachColor.value">
+            <p style="font-size: 22px !important;">{{eachColor.text}}</p>
+          </ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-item-group>
+
+    <ion-item-group *ngIf="selectedTreeFilterForm.controls.typeOfSeeding.value == '2'">
+      <div text-left >সংখ্যা</div>
+      <ion-input type="number"
+                 formControlName="numberOfGroupElement"
+                 placeholder="সংখ্যা প্রবেশ করান">
+      </ion-input>
+    </ion-item-group>
+
+    <ion-item-divider text-center
+      *ngIf="selectedTreeFilterForm.controls.typeOfSeeding.value == '2'">
+      মুল সার প্রযোগ
+    </ion-item-divider>
+
+    <ion-item-group
+      *ngIf="selectedTreeFilterForm.controls.typeOfSeeding.value == '2'">
+      <div text-left >জৈব সারের পরিমান</div>
+      <ion-input type="number"
+                 formControlName="chemicalFartilizer"
+                 placeholder="সংখ্যা প্রবেশ করান">
+      </ion-input>
+    </ion-item-group>
+
+    <ion-item-group
+      *ngIf="selectedTreeFilterForm.controls.typeOfSeeding.value == '2'">
+      <div text-left>রাসায়নিক সারের পরিমান</div>
+      <ion-input type="number"
+                 formControlName="organicFartilizer"
+                 placeholder="সংখ্যা প্রবেশ করান">
+      </ion-input>
+    </ion-item-group>
+
+    <button ion-button block
+            color="customColor"
+            type="submit"
+            [disabled]="!selectedTreeFilterForm.valid">পাঠান
+    </button>
+
+
+  </form>
+
+</ion-content>
