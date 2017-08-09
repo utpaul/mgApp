@@ -28,7 +28,7 @@
                         [attr.track]="session.tracks">
 
         <button ion-item>
-          <h2 style="font-size:20px !important;">সমস্যা নম্বরঃ {{session.id}}</h2>
+          <h2 style="font-size:22px !important;" text-center>সমস্যা নম্বরঃ {{session.id}}</h2>
           <h2 style="font-size:20px !important;">সমস্যার বিষয়ঃ {{session.category_text}}</h2>
           <h2 style="font-size:20px !important;">যেখানে সমস্যাঃ {{session.stage_text}}</h2>
           <button ion-button color="customColor" item-end >বিস্তারিত</button>
@@ -67,11 +67,12 @@
 
       <ion-item-sliding *ngFor="let session of item.problems"
                         [attr.track]="session.tracks">
-        <button ion-item>
-          <h2 style="font-size:20px !important;">সমস্যা নম্বরঃ {{session.id}}</h2>
+        <button ion-item
+                (click)="adminSolution(session)">
+          <h2 style="font-size:22px !important;" text-center>সমস্যা নম্বরঃ {{session.id}}</h2>
           <h2 style="font-size:20px !important;">সমস্যার বিষয়ঃ {{session.category_text}}</h2>
           <h2 style="font-size:20px !important;">যেখানে সমস্যাঃ {{session.stage_text}}</h2>
-          <button ion-button color="customColor" item-end>বিস্তারিত</button>
+          <h2 style="font-size:20px !important;">সমস্যার উৎথাপকঃ {{session.username}}</h2>
         </button>
 
       </ion-item-sliding>
@@ -84,7 +85,7 @@
     কোন সমস্যা খুঁজে পাওয়া যায় নি
   </ion-list-header>
 
-  <ion-fab right bottom>
+  <ion-fab right bottom *ngIf="!adminFlag">
     <button ion-fab color="customColor"
             [navPush]="problemFormPage">
       <ion-icon name="ios-paper-outline">

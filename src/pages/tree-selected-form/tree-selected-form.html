@@ -15,7 +15,7 @@
 <ion-content padding-horizontal>
 
   <ion-card>
-    <img src="{{imageUrl + loadData.photo}}"/>
+    <img src="{{imageUrl + loadData.photo}}" padding />
     <ion-card-content>
       <ion-card-title text-center>
         বাংলা নামঃ {{loadData.banglaName}}
@@ -35,6 +35,7 @@
         <ion-label>লাগানো তারিখ</ion-label>
         <ion-datetime displayFormat="MMM DD YYYY"
                       formControlName="dateOfSeeding"
+                      doneText="ওকে" cancelText="বাতিল"
                       placeholder="তারিখ প্রবেশ করুন">
         </ion-datetime>
       </ion-item>

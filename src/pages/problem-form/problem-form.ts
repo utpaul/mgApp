@@ -143,7 +143,7 @@ export class ProblemFormPage implements OnInit{
 
     let formData = this.registrationForm.value;
     formData.images = this.photoLists;
-
+    console.log(formData);
     this.l2nHttp.postRequest('new-problem-save',formData, 'ডেটা সংরক্ষণ হচ্ছে...').then(
       data => {
         console.log('success');

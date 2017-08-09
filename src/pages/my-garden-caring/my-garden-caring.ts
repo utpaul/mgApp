@@ -12,12 +12,11 @@ export class MyGardenCaringPage implements OnInit{
 
   public registrationForm: FormGroup;
   private loadedData =[];
-  treeList:any;
+  public treeList  = ["লিচু","আম", "মাধবীলতা","গন্ধরাজ"];
   constructor(private l2nHttp:L2nHttp,
               private formBuilder: FormBuilder) {
 
   }
-
   ngOnInit(){
 
     this.registrationForm = this.formBuilder.group({
@@ -30,11 +29,14 @@ export class MyGardenCaringPage implements OnInit{
 
     this.l2nHttp.getRequest('selected-tree-list','ডাটা লোড করা হচ্ছে...').then(
       data => {
+
         this.loadedData =data;
 
         for(let i=0;i<this.loadedData.length;i++){
-           this.treeList.push(this.loadedData[i].banglaName);
+          //this.treeList.push(this.loadedData[i].banglaName);
         }
+
+        console.log(this.treeList);
 
       },
       err => {}

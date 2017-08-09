@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-navbar color="customColor">
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title class="custom-font"
+               style="font-size: 2.1em;">বিস্তারিত সমাধান
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list padding-horizontal>
+
+    <ion-item-divider sticky>
+      <ion-label text-center>
+          <span style="color:#000 !important;
+          font-weight: bold;
+          font-size: 18px;">
+            সমাধানের তারিখঃ {{loadData.solution_time}}
+          </span>
+      </ion-label>
+    </ion-item-divider>
+
+    <ion-item no-border detail-none>
+      <h1 text-center>সমস্যা নম্বরঃ {{loadData.problem_id}}</h1>
+      <h2 style="font-size:23px !important;">সমস্যা তারিখঃ {{loadData.problem_entry_time}}</h2>
+      <h2 style="font-size:23px !important;">সমস্যার বিষয়ঃ {{loadData.problem_category_text}}</h2>
+      <h2 style="font-size:23px !important;">যেখানে সমস্যাঃ {{loadData.problem_stage_text}}</h2>
+      <h2 style="font-size:23px !important;">সমস্যা বিবরণঃ  {{loadData.problem_description}}</h2>
+      <h2 style="font-size:23px !important;">সমস্যার উৎথাপকঃ {{loadData.problem_owner}}</h2>
+    </ion-item>
+
+    <div *ngIf="loadData.problem_image !='---'">
+      <ion-item-divider sticky >
+        <ion-label text-center>
+          <span style="color:#000 !important;
+          font-size: 14px;">
+           সমস্যার চিত্র তালিকা
+          </span>
+        </ion-label>
+      </ion-item-divider>
+
+      <ion-item margin-bottom>
+        <ion-slides class="image-slider" loop="true" slidesPerView="0">
+          <ion-slide *ngFor="let img of imagesList">
+            <img src="{{imageUrl + img}}"
+                 class="thumb-img" imageViewer/>
+          </ion-slide>
+        </ion-slides>
+      </ion-item>
+
+    </div>
+
+    <div *ngIf="loadData.problem_record !='---'">
+
+      <ion-item-divider sticky>
+        <ion-label text-center>
+          <span style="color:#000 !important;
+          font-size: 14px;">
+           সমস্যার অডিও ফাইল
+          </span>
+        </ion-label>
+      </ion-item-divider>
+
+    </div>
+
+  </ion-list>
+
+  <ion-list padding-horizontal>
+    <ion-list-header text-center
+                     style="color: #000;
+                      font-weight: bold;
+                      font-size: 18px;">
+      সমস্যার সমাধান
+    </ion-list-header>
+
+    <ion-item no-border detail-none>
+      <h2 style="font-size:23px !important;">সমাধানের বিবরণঃ  {{loadData.problem_description}}</h2>
+      <h2 style="font-size:23px !important;">সমাধানের মানুষঃ {{loadData.solution_owner}}</h2>
+    </ion-item>
+
+    <div *ngIf="loadData.solution_record !='---'">
+
+      <ion-item-divider sticky>
+        <ion-label text-center>
+          <span style="color:#000 !important;
+          font-size: 14px;">
+           সমস্যার অডিও ফাইল
+          </span>
+        </ion-label>
+      </ion-item-divider>
+
+    </div>
+
+  </ion-list>
+
+</ion-content>

@@ -8,6 +8,7 @@ import {API_CONFIG} from "../../constants/api";
   selector: 'page-tree-select',
   templateUrl: 'tree-select.html',
 })
+
 export class TreeSelectPage {
 
   public searchElement ={type:' ', season:' '};

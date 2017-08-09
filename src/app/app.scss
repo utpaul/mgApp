@@ -81,3 +81,32 @@
 .custom-loading{
   color: #00953B !important;
 }
+
+.picker-md .picker-button, .picker-md .picker-button.activated{
+  height: 44px;
+  background: #00953B;
+  box-shadow: none;
+  font-size: 20px;
+  color: #fff;
+  margin-top: 4px;
+  margin-right: 6px;
+}
+
+.card-md h2, .item-md h2{
+  font-size: 20px;
+}
+
+.alert-md .alert-title {
+  font-size: 28px;
+  text-align: center;
+}
+
+.alert-md .alert-message {
+  max-height: 240px;
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.alert-md .alert-button{
+  font-size: 17px;
+}

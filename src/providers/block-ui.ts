@@ -27,7 +27,7 @@ export class BlockUi {
     let alert = this._alert.create({
       title: title,
       message: msg,
-      buttons: ['Dismiss'],
+      buttons: ['বাদ দিন'],
       cssClass: "danger-alert"
     });
 

@@ -17,7 +17,6 @@ export class NewProblemPage {
   private loadedData =[];
   adminFlag:boolean=false;
 
-
   constructor(private l2nHttp:L2nHttp,
               private blockUi:BlockUi,
               public navCtrl: NavController,
@@ -36,7 +35,7 @@ export class NewProblemPage {
       this.l2nHttp.getRequest('problem-lists','ডাটা লোড করা হচ্ছে...').then(
         data => {
           this.loadedData=data;
-          console.log(this.loadedData)
+          console.log(this.loadedData);
         },
         err => {}
       );
@@ -45,7 +44,7 @@ export class NewProblemPage {
       this.l2nHttp.getRequest('problem-lists','ডাটা লোড করা হচ্ছে...').then(
         data => {
           this.loadedData=data;
-          console.log(this.loadedData)
+          console.log(this.loadedData);
         },
         err => {}
       );
@@ -63,6 +62,11 @@ export class NewProblemPage {
 
   }
 
+  adminSolution(session){
+    this.navCtrl.push('AdminProblemFormPage',session)
+  }
+
+
   recordedAudio(id){
 
     if(parseInt(id) == 0){
@@ -72,5 +76,7 @@ export class NewProblemPage {
     }
 
   }
+
+
 
 }

@@ -14,7 +14,38 @@
 
 <ion-content padding>
 
-  <ion-list *ngIf="loadedData.lists?.length > 0 ">
+  <ion-list *ngIf="loadedData.lists?.length > 0 && adminFlag">
+
+    <ion-item-group *ngFor="let item of loadedData.lists">
+
+      <ion-item-divider sticky>
+        <ion-label >
+            <span style="color:#000 !important;">
+              সমাধানের তারিখঃ {{item.solution_time}}
+            </span>
+        </ion-label>
+      </ion-item-divider>
+
+      <ion-item-sliding *ngFor="let session of item.problems"
+                        [attr.track]="session.tracks">
+
+        <button ion-item
+                (click)="adminSolution(session)">
+          <h1 text-center>সমস্যা নম্বরঃ {{session.problem_id}}</h1>
+          <h2 style="font-size:20px !important;">সমস্যা তারিখঃ {{session.problem_entry_date}}</h2>
+          <h2 style="font-size:20px !important;">সমস্যার বিষয়ঃ {{session.problem_category_text}}</h2>
+          <h2 style="font-size:20px !important;">যেখানে সমস্যাঃ {{session.problem_stage_text}}</h2>
+          <h2 style="font-size:20px !important;">সমস্যা বিবরণঃ  {{session.problem_description}}</h2>
+          <h2 style="font-size:20px !important;">সমস্যার উৎথাপকঃ {{session.problem_owner}}</h2>
+        </button>
+
+      </ion-item-sliding>
+
+    </ion-item-group>
+
+  </ion-list>
+
+  <ion-list *ngIf="loadedData.lists?.length > 0 && !adminFlag">
 
     <ion-item-group *ngFor="let item of loadedData.lists">
 
@@ -29,13 +60,14 @@
       <ion-item-sliding *ngFor="let session of item.problems"
                         [attr.track]="session.tracks">
 
-        <button ion-item>
+        <button ion-item
+                (click)="adminSolution(session)">
           <h1 text-center>সমস্যা নম্বরঃ {{session.problem_id}}</h1>
+          <h2 style="font-size:20px !important;">সমস্যা তারিখঃ {{session.problem_entry_time}}</h2>
           <h2 style="font-size:20px !important;">সমস্যার বিষয়ঃ {{session.problem_category_text}}</h2>
           <h2 style="font-size:20px !important;">যেখানে সমস্যাঃ {{session.problem_stage_text}}</h2>
           <h2 style="font-size:20px !important;">সমস্যা বিবরণঃ  {{session.problem_description}}</h2>
-          <h1 text-center>সমাধান</h1>
-          <h2 style="font-size:20px !important;">সমাধানের বিবরণঃ {{session.s_description}}</h2>
+          <h2 style="font-size:20px !important;">সমাধানের মানুষঃ {{session.solution_owner}}</h2>
         </button>
 
       </ion-item-sliding>
@@ -44,7 +76,7 @@
 
   </ion-list>
 
-  <ion-list-header *ngIf="loadedList?.length == 0">
+  <ion-list-header *ngIf="loadedData.lists?.length == 0">
     কোন সমাধান পাওয়া যায় নি।
   </ion-list-header>
 

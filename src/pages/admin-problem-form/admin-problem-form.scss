@@ -1,12 +1,24 @@
 .ios,.md{
-  page-tree-selected-form {
+  page-admin-problem-form {
 
-    .item-input .label-md, .item-select .label-md, .item-datetime .label-md,ion-item-divider {
-      color: #000;
+    .slide-zoom {
+      background: #e6e6e6;
     }
 
+    .thumb-img {
+      padding: 4px;
+    }
+
+    .item-input .label-md, .item-select .label-md, .item-datetime .label-md {
+      color: #000;
+    }
     .custom-border-color{
       border: 1px solid #dedede;
+    }
+
+    .col-4{
+      width: 100px !important;
+      height:100px !important;
     }
 
     ion-item-group{
@@ -59,21 +71,5 @@
       border: 1px solid #dedede;
     }
 
-    ion-item-divider{
-      font-size: 18px !important;
-    }
-    .button-inner{
-      font-size: 19px;
-      padding-top:6px;
-    }
-
-    doneText{
-      height: 44px;
-      background: #00953B;
-      box-shadow: none;
-      font-size: 20px;
-      color: #fff;
-      margin-top: 4px;
-    }
   }
 }
