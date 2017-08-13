@@ -62,8 +62,14 @@ export class NewProblemPage {
 
   }
 
-  adminSolution(session){
-    this.navCtrl.push('AdminProblemFormPage',session)
+  problemSession(session){
+
+    if(this.auth.currentUser.authority =='1'){
+      this.navCtrl.push('AdminProblemFormPage',session)
+    }else{
+      this.navCtrl.push('DetailsProblemPage',session)
+    }
+
   }
 
 

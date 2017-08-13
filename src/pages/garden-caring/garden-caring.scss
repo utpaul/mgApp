@@ -1,3 +1,79 @@
-page-garden-caring {
+.ios,.md{
+  page-garden-caring {
 
+    .section {
+      background: #ecf0f1;
+      color: #00953B;
+      margin-bottom: 4px;
+      border-radius: 4px;
+    }
+    .section .badge-md {
+      border-radius: 50%;
+      height: 30px;
+      width: 30px;
+      color: #00953B;
+      border: 1px solid #DEDEDE;
+      background: inherit;
+    }
+    .section-active {
+      background: #00953B;
+      color: #fff;
+      border-radius: 4px;
+    }
+
+    .section-active .badge-md {
+      border-radius: 50%;
+      color: #ecf0f1;
+      height: 30px;
+      width: 30px;
+      border:1px solid #ecf0f1;
+      background: inherit;
+    }
+
+    ion-list ion-item{
+      background-color: #ecf0f1;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .child-item {
+      background: #f3f2f1;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .label {
+      margin: 0px;
+    }
+
+    .list {
+      margin-bottom: 4px;
+    }
+
+    .accordion-list {
+      height: 100%;
+    }
+
+    ion-item{
+      transition: 0.8s linear;
+    }
+
+    .edited-form{
+      position: absolute !important;
+      font-size: 0.8em;
+      background: #00953B;
+      color: #fff;
+      border-radius: 4px;
+      margin-top: 4px;
+      text-transform: capitalize !important;
+      right: 10px;
+      top: 10px;
+      padding: 15px;
+    }
+    .scroll-content {
+      overflow-y: auto;
+    }
+
+
+  }
 }

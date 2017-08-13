@@ -7,6 +7,7 @@ import {API_CONFIG} from "../../constants/api";
   selector: 'page-details-list',
   templateUrl: 'details-list.html',
 })
+
 export class DetailsListPage implements OnInit{
 
   private loadedList :any;
@@ -17,9 +18,7 @@ export class DetailsListPage implements OnInit{
   }
 
   ngOnInit(){
-
     this.loadedList = this.navParams.data;
-    console.log(this.loadedList);
   }
 
 }

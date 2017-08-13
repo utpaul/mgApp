@@ -19,17 +19,27 @@ export class GardenCaringPage {
   }
 
   ionViewDidEnter(){
-
     this.loadedList =[];
-    this.l2nHttp.getRequest('selected-tree-list','ডাটা লোড করা হচ্ছে...').then(
+    this.l2nHttp.getRequest('my-garden-caring','ডাটা লোড করা হচ্ছে...').then(
       data => {
         this.loadedList =data;
+        for(let i=0; i<this.loadedList.length;i++){
+
+          this.loadedList[i].eachTreeService =this.loadedList[i].children.length;
+        }
+
         console.log(this.loadedList);
       },
-      err => {}
+
+      err => {
+        console.log(err);
+      }
     );
 
   }
 
+  toggleSection(i) {
+    this.loadedList[i].open = !this.loadedList[i].open;
+  }
 
 }

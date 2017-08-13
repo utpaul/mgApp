@@ -12,12 +12,52 @@
 
 <ion-content padding>
 
-  <ion-fab right bottom>
-    <button ion-fab color="customColor"
-            [navPush]="myGardenCaringPage">
-      <ion-icon name="ios-paper-outline">
-      </ion-icon>
-    </button>
-  </ion-fab>
+  <ion-list class="accordion-list">
+
+    <ion-list-header *ngFor="let item of loadedList; let i = index"
+                     no-lines no-padding>
+
+      <button ion-item (click)="toggleSection(i)" detail-none
+              [ngClass]="{'section-active': item.open, 'section': !item.open}">
+        <ion-icon item-left name="ios-arrow-dropdown"
+                  style="color:#00953B; margin-left: 14px;font-size:32px;" *ngIf="!item.open"></ion-icon>
+        <ion-icon item-left name="ios-arrow-dropright"
+                  style="color:#f3f2f1; margin-left: 14px;font-size:32px;"
+                  *ngIf="item.open">
+        </ion-icon>
+
+        <h2 style="font-size: 22px !important;
+             margin:16px;font-weight: bold;">
+          {{item.banglaName}}
+        </h2>
+
+        <ion-badge item-end>{{item.eachTreeService}}</ion-badge>
+      </button>
+
+      <ion-list *ngIf="item.children && item.open"
+                style="margin-top:10px;">
+        <ion-item *ngFor="let child of item.children;let j= index" no-padding>
+          <h2 text-wrap margin-left margin-top> প্রিচযার তারিখঃ 20-11-2017</h2>
+          <h2 text-wrap margin-left>লাগানোর ধরণঃ একক</h2>
+          <h2 text-wrap margin-left margin-bottom>বিবরণঃ dfd</h2>
+        </ion-item>
+
+        <ion-row>
+          <ion-col right>
+            <ion-fab right bottom>
+              <button ion-fab mini color="customColor">
+                <ion-icon name="ios-paper-outline">
+                </ion-icon>
+              </button>
+            </ion-fab>
+          </ion-col>
+        </ion-row>
+
+      </ion-list>
+
+    </ion-list-header>
+
+  </ion-list>
+
 
 </ion-content>
