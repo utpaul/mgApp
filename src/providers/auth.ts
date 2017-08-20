@@ -19,6 +19,7 @@ export class AuthProvider {
   private error:string;
   private _http: Http;
   private _loaded = false;
+  private _phoneNo = '';
 
   private baseUrl:string ='/api/';
   private jwtHelper: JwtHelper = new JwtHelper();
@@ -65,6 +66,10 @@ export class AuthProvider {
     return this._authToken;
   }
 
+  get phoneNo(): string {
+    return this._phoneNo;
+  }
+
   get isAuthenticated(): boolean {
     return this._isAuthenticated;
   }
@@ -77,7 +82,8 @@ export class AuthProvider {
     localForage.getItem(LOCAL_TOKEN_KEY)
       .then(
         data => this.useCredentials(data),
-        error => {console.error(error);  this.destroyUserCredentials();}
+        error => {console.error(error);
+        this.destroyUserCredentials();}
       );
   }
 
@@ -114,6 +120,10 @@ export class AuthProvider {
     }
   }
 
+  storeUserPhone(token){
+    this._phoneNo=token;
+  }
+
   destroyUserCredentials() {
 
     console.log('destroying');
@@ -140,13 +150,14 @@ export class AuthProvider {
 
       this.platform.ready().then(() => {
 
-          this._http.post(this.baseUrl + 'access-token',
+          this._http.post('/api/' + 'access-token',
             "phone=" + phone +
             "&password=" + password,
             { headers: this.contentHeader })
             .map(res => res.json())
             .subscribe(
               data => {
+                this.storeUserPhone(phone);
                 console.log(data.token);
                 this.authSuccess(data.token);
                 resolve('Login success.');

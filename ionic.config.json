@@ -7,6 +7,8 @@
       "proxyUrl": "http://l2nsoft.ml/mis.zxyinternational.com/my-roof-api/index.php/"
     }
   ],
-  "type": "ionic-angular"
-
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
 }

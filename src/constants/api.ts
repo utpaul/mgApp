@@ -3,5 +3,6 @@ export const API_CONFIG = {
   'X-API-KEY' : 'ThisKeyIsNotSoSecretChangeIt1',
   'misBase':'http://l2nsoft.ml/mis.zxyinternational.com/roofGardenProblemPhoto/l2nPhoto/',
   'misBase2':'http://l2nsoft.ml/mis.zxyinternational.com/roofGardenProblemPhoto/',
+  'misBase3':'http://l2nsoft.ml/mis.zxyinternational.com/roofGardenRecord/',
   'secret': 'dhaka123'
 }

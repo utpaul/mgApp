@@ -15,7 +15,7 @@ export class SolutionDetailsPage implements OnInit{
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams) {
-    this.imageUrl =API_CONFIG.misBase;
+    this.imageUrl =API_CONFIG.misBase2;
   }
 
   ngOnInit(){

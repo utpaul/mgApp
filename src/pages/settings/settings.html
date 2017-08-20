@@ -13,4 +13,59 @@
 
 <ion-content padding>
 
+  <ion-list class="accordion-list">
+
+    <ion-list-header no-lines no-padding>
+
+      <button ion-item (click)="toggleSection()" detail-none
+              [ngClass]="{'section-active': open, 'section': !open}">
+        <ion-icon item-left name="ios-arrow-dropdown"
+                  style="color:#00953B; margin-left: 14px;font-size:32px;" *ngIf="!open"></ion-icon>
+        <ion-icon item-left name="ios-arrow-dropright"
+                  style="color:#f3f2f1; margin-left: 14px;font-size:32px;"
+                  *ngIf="open">
+        </ion-icon>
+
+        <h2 style="font-size: 22px !important;
+             margin:16px;font-weight: bold;"
+            class="accordion-list">
+          পাসওয়ার্ড পরিবর্তন
+        </h2>
+      </button>
+
+      <ion-list *ngIf="open"
+                style="margin-top:10px;" no-padding>
+        <ion-item>
+          <ion-label floating style="color: #000;">পুরানো পাসওয়ার্ড</ion-label>
+          <ion-input [(ngModel)]="password.oldPassword"
+                     type="password">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating style="color: #000;">নতুন পাসওয়ার্ড</ion-label>
+          <ion-input [(ngModel)]="password.newPassword"
+                     type="password">
+          </ion-input>
+        </ion-item>
+
+        <div margin>
+
+          <button ion-button full
+                  color="customColor"
+                  class="submit-btn"
+                  type="button"
+                  [disabled]="!(password.newPassword) || !(password.oldPassword)"
+                  (click)="changePassword()"
+                  style="font-size: 20px; margin-top:3px;">পাসওয়ার্ড পরিবর্তন করুন
+          </button>
+
+        </div>
+
+      </ion-list>
+
+    </ion-list-header>
+
+  </ion-list>
+
 </ion-content>

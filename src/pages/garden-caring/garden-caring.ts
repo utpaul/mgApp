@@ -26,6 +26,7 @@ export class GardenCaringPage {
         for(let i=0; i<this.loadedList.length;i++){
 
           this.loadedList[i].eachTreeService =this.loadedList[i].children.length;
+
         }
 
         console.log(this.loadedList);

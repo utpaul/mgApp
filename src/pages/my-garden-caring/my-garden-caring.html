@@ -12,27 +12,48 @@
 
 <ion-content>
 
-  <form [formGroup]="registrationForm" novalidate (ngSubmit)="submitValue()">
+  <form [formGroup]="servicesForm" novalidate
+        (ngSubmit)="submitValue()">
 
     <ion-list padding-horizontal>
 
       <ion-item-group>
+
         <ion-item margin-top
                   padding-horizontal
                   class="custom-border-color">
-          <ion-label>নির্বাচিত গাছ</ion-label>
+          <ion-label>ধরন</ion-label>
           <ion-select okText="ওকে" cancelText="বাতিল"
                       [selectOptions]="selectOptions"
-                      formControlName="category">
-            <ion-option *ngFor="let eachColor of treeList"
-                        [value]="eachColor">
-              <p style="font-size: 22px !important;">{{eachColor}}</p>
+                      formControlName="serviceType">
+            <ion-option *ngFor="let eachValue of serviceList"
+                        [value]="eachValue.value">
+              <p style="font-size: 22px !important;">{{eachValue.text}}</p>
             </ion-option>
           </ion-select>
         </ion-item>
+
+      </ion-item-group>
+
+      <ion-item-group>
+        <div text-left style="margin-bottom: 8px;">বিবরণ</div>
+        <ion-textarea elastic
+                      placeholder="বর্ণনা করুন"
+                      formControlName="description">
+        </ion-textarea>
       </ion-item-group>
 
     </ion-list>
+
+    <div margin>
+      <button ion-button block
+              color="customColor"
+              type="submit"
+              style="font-size: 1.5em;"
+              [disabled]="!servicesForm.valid">
+        <span style="margin-top: -3px !important;">পাঠান</span>
+      </button>
+    </div>
 
   </form>
 

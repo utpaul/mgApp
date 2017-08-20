@@ -39,7 +39,7 @@ export class MyApp {
       splashScreen.hide();
 
       this.auth.onSessionStore.subscribe(() => {
-
+        this. pages =[];
         if (this.auth.isAuthenticated == true) {
           this.isAuthenticated = true;
           this.user = new User(this.auth.currentUser);
@@ -52,7 +52,6 @@ export class MyApp {
               this.pages.push({title: el.label, icon: el.icon, component: el.component})
             });
           }
-
 
           this.nav.setRoot('page-home').then(() => {
           });

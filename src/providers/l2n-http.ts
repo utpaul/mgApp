@@ -36,7 +36,7 @@ export class L2nHttp {
 
       let a = this.blockUi.show(preMessage);
       this.platform.ready().then(() => {
-        this.http.get(this.baseUrl + url,
+        this.http.get('/api/' + url,
           { headers: new Headers({
             "X-Auth-Token": this._auth.authToken,
             'X-API-KEY': API_CONFIG['X-API-KEY']
@@ -60,7 +60,7 @@ export class L2nHttp {
 
       let a = this.blockUi.show(preMessage);
       this.platform.ready().then(() => {
-        this.http.post( this.baseUrl + url, data,
+        this.http.post( '/api/' + url, data,
           { headers: new Headers({
             "X-Auth-Token": this._auth.authToken,
             'X-API-KEY': API_CONFIG['X-API-KEY']
