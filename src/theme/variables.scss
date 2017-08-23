@@ -42,6 +42,11 @@ $colors: (
 
 
 
+// Use the primary color as the background for the toolbar-md-background
+$toolbar-md-background:                   color($colors, customColor);
+
+// Change the color of the segment button text
+$toolbar-md-active-color:                 #fff;
 
 // App Material Design Variables
 // --------------------------------------------------
@@ -69,7 +74,7 @@ $spinner-md-dots-color:#00953B;
 
 $badge-font-size:1.5rem;
 
-$alert-md-message-font-size: 1.4em;
+$alert-md-message-font-size: 1.2em;
 
 
 $popover-md-width:300px;
@@ -121,12 +126,13 @@ $loading-md-text-color:#00953B;
 }
 
 $font-family-base: "SutonnyOMJ" !default;
+
 body{
   font-family: "SutonnyOMJ" !important;
   font-weight: normal !important;
 }
 
-h1, h2, button {
+h1, h2, button,h4,p,h3,ion-content {
   font-family: "SutonnyOMJ" !important;
 }
 

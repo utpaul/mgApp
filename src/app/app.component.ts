@@ -44,16 +44,15 @@ export class MyApp {
           this.isAuthenticated = true;
           this.user = new User(this.auth.currentUser);
 
-          if(this.auth.currentUser.authority =='1'){
-            this.pages.push({title: 'তথ্য সহায়তা', icon: 'ios-help-circle-outline', component: 'TechnicalHelpPage'});
-            this.pages.push({title: 'সেটিংস', icon: 'ios-settings-outline', component: 'SettingsPage'})
-          }else{
-            APP_MENUS.sidebar.forEach(el => {
-              this.pages.push({title: el.label, icon: el.icon, component: el.component})
-            });
-          }
-
           this.nav.setRoot('page-home').then(() => {
+            if(this.auth.currentUser.authority =='1'){
+              this.pages.push({title: 'তথ্য সহায়তা', icon: 'ios-help-circle-outline', component: 'TechnicalHelpPage'});
+              this.pages.push({title: 'সেটিংস', icon: 'ios-settings-outline', component: 'SettingsPage'})
+            }else{
+              APP_MENUS.sidebar.forEach(el => {
+                this.pages.push({title: el.label, icon: el.icon, component: el.component})
+              });
+            }
           });
 
         } else {
