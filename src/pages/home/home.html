@@ -1,6 +1,7 @@
 <ion-header>
-  <ion-navbar color="customColor">
-    <button ion-button icon-only menuToggle>
+  <ion-navbar no-border-bottom
+              color="customColor">
+    <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title class="custom-font"
@@ -9,8 +10,99 @@
     </ion-title>
   </ion-navbar>
 
+  <ion-toolbar no-border-top>
+    <ion-segment mode="md" [(ngModel)]="segment">
+      <ion-segment-button value="all">
+        <ion-icon name="md-clipboard"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="notification">
+        <ion-icon name="ios-notifications-outline"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+
+  <div *ngIf="segment === 'all'">
+
+    <ion-card  *ngFor="let item of loadedData">
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="{{imageUrl + item.userPhoto}}">
+        </ion-avatar>
+        <h4>{{item.userName}}</h4>
+        <h4>{{item.dateOfQuestion1}}</h4>
+      </ion-item>
+      <ion-card-content>
+        <h4 text-wrap>সমস্যা নম্বরঃ {{item.id}}</h4>
+        <h4 text-wrap>সমস্যার বিষয়ঃ {{item.categoryText}}</h4>
+        <h4 text-wrap>যেখানে সমস্যাঃ {{item.stageText}}</h4>
+        <h4 text-wrap>বিবরণঃ {{item.description}}</h4>
+      </ion-card-content>
+
+      <ion-row>
+        <ion-col (click)="giveSolution(item)">
+          <button ion-button icon-left clear small>
+            <ion-icon name="text"></ion-icon>
+            <div>সমাধান দাও</div>
+          </button>
+        </ion-col>
+        <ion-col center text-center>
+          <ion-note>
+            {{item.difference}}
+          </ion-note>
+        </ion-col>
+      </ion-row>
+
+    </ion-card>
+
+    <ion-list-header *ngIf="loadedData.length == 0" >
+      কোন সমস্যা খুঁজে পাওয়া যায় নি
+    </ion-list-header>
+
+  </div>
+
+  <div *ngIf="segment === 'notification'">
+
+    <ion-card *ngFor="let item of loadedDataList">
+
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="{{imageUrl + item.solutionUserPhoto}}">
+        </ion-avatar>
+        <h4 text-wrap>{{item.solutionUser}}</h4>
+        <h4>{{item.dateOfQuestion1}}</h4>
+      </ion-item>
+
+      <ion-card-content>
+        <h4 margin-top text-wrap>সমস্যা নম্বরঃ {{item.problemId}}</h4>
+        <h4 text-wrap>সমস্যার উৎথাপকঃ {{item.problemUser}}</h4>
+      </ion-card-content>
+
+      <ion-row>
+        <ion-col
+          (click)="solutionDetails(item)">
+          <button ion-button icon-left clear small>
+            <ion-icon name="text"></ion-icon>
+            <div>সমাধান</div>
+          </button>
+        </ion-col>
+        <ion-col center text-center>
+          <ion-note>
+            {{item.difference}}
+          </ion-note>
+        </ion-col>
+      </ion-row>
+
+    </ion-card>
+
+    <ion-list-header *ngIf="loadedDataList.length == 0" >
+      কোন সমাধান পাওয়া যায় নি।
+    </ion-list-header>
+
+  </div>
+
 
 </ion-content>
