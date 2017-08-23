@@ -1,23 +1,12 @@
 .ios,.md{
   page-my-garden-caring {
-    .item-input .label-md, .item-select .label-md, .item-datetime .label-md {
+
+    .item-input .label-md, .item-select .label-md,
+    .item-datetime .label-md {
       color: #000;
     }
     .custom-border-color{
       border: 1px solid #dedede;
-    }
-
-    .deleteIcon {
-      position: absolute !important;
-      color: red !important;
-      margin-left: 70% !important;
-      transform: rotate(45deg);
-    }
-    .deleteIcon:before {
-      font-size: 30px !important;
-    }
-    .releative {
-      position: relative
     }
 
     ion-item-group{
@@ -68,6 +57,10 @@
       flex: 1;
       width: 100%;
       border: 1px solid #dedede;
+    }
+
+    .button-inner{
+      font-size: 1em !important;
     }
 
   }
