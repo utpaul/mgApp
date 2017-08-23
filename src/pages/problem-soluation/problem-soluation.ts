@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {IonicPage, NavController} from 'ionic-angular';
 import {L2nHttp} from "../../providers/l2n-http";
 import {AuthProvider} from "../../providers/auth";
-import {API_CONFIG} from "../../constants/api";
 
 @IonicPage()
 @Component({
@@ -47,6 +46,10 @@ export class ProblemSoluationPage {
 
   adminSolution(session){
     this.navCtrl.push('SolutionDetailsPage',session);
+  }
+
+  status(){
+    this.navCtrl.setRoot('page-home');
   }
 
 }

@@ -23,13 +23,19 @@
 
     h2{
       color: #000;
-      font-size: 22px;
     }
 
     ion-list-header,ion-label{
       color: #000;
-      font-size: 17px;
+      font-size: 1em !important
     }
 
+    h4{
+      font-size: 1em !important;
+    }
+
+    ion-item{
+      border-bottom: 1px solid #858585;
+    }
   }
 }
