@@ -20,25 +20,25 @@
       <ion-card-title text-center>
         বাংলা নামঃ {{loadedList.banglaName}}
       </ion-card-title>
-      <h2 text-wrap *ngIf="loadedList.dateofSeedingTime != '---'">লাগানো তারিখঃ {{loadedList.dateofSeedingTime}}</h2>
-      <h2 text-wrap>ধরণঃ {{loadedList.type}}</h2>
-      <h2 text-wrap>ইংরেজি নামঃ {{loadedList.englishName}}</h2>
-      <h2 text-wrap>বৈজ্ঞানিক নামঃ {{loadedList.scientificName}}</h2>
-      <h2 text-wrap>ঋতুঃ {{loadedList.season}}</h2>
-      <h2 text-wrap>রোপন বা বপন সময়ঃ {{loadedList.seedingTime}}</h2>
+      <h4 text-wrap *ngIf="loadedList.dateofSeedingTime != '---'">লাগানো তারিখঃ {{loadedList.dateofSeedingTime}}</h4>
+      <h4 text-wrap>ধরণঃ {{loadedList.type}}</h4>
+      <h4 text-wrap>ইংরেজি নামঃ {{loadedList.englishName}}</h4>
+      <h4 text-wrap>বৈজ্ঞানিক নামঃ {{loadedList.scientificName}}</h4>
+      <h4 text-wrap>ঋতুঃ {{loadedList.season}}</h4>
+      <h4 text-wrap>রোপন বা বপন সময়ঃ {{loadedList.seedingTime}}</h4>
 
       <div *ngIf="loadedList.dateofSeedingTime != '---'">
-        <h2 text-wrap  *ngIf="loadedList.typeofSeeding == '1'">লাগানোর ধরণঃ একক</h2>
-        <h2 text-wrap  *ngIf="loadedList.typeofSeeding == '2'">লাগানোর ধরণঃ গ্রুপ</h2>
-        <h2 text-wrap *ngIf="loadedList.typeofSeeding == '2'">সংখ্যাঃ {{loadedList.numberOfGroupElement}}</h2>
-        <h2 text-wrap *ngIf="loadedList.typeofSeeding == '2'">জৈব সারের পরিমানঃ {{loadedList.chemicalFartilizer}}</h2>
-        <h2 text-wrap *ngIf="loadedList.typeofSeeding == '2'">রাসায়নিক সারের পরিমানঃ {{loadedList.organicFartilizer}}</h2>
+        <h4 text-wrap  *ngIf="loadedList.typeofSeeding == '1'">লাগানোর ধরণঃ একক</h4>
+        <h4 text-wrap  *ngIf="loadedList.typeofSeeding == '2'">লাগানোর ধরণঃ গ্রুপ</h4>
+        <h4 text-wrap *ngIf="loadedList.typeofSeeding == '2'">সংখ্যাঃ {{loadedList.numberOfGroupElement}}</h4>
+        <h4 text-wrap *ngIf="loadedList.typeofSeeding == '2'">জৈব সারের পরিমানঃ {{loadedList.chemicalFartilizer}}</h4>
+        <h4 text-wrap *ngIf="loadedList.typeofSeeding == '2'">রাসায়নিক সারের পরিমানঃ {{loadedList.organicFartilizer}}</h4>
       </div>
     </ion-card-content>
 
-    <ion-row>
+    <ion-row *ngIf="loadedList.typeofSeeding != '---'">
       <ion-col center text-center>
-        <button ion-button color="danger" item-end >অপসারণ</button>
+        <button ion-button color="danger" item-end (click)="removeTree(loadedList.id)">অপসারণ</button>
       </ion-col>
     </ion-row>
 
