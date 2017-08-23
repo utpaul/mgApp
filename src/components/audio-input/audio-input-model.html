@@ -10,12 +10,12 @@
       <ion-spinner name="dots" color="customColor"></ion-spinner>
       <h3 class="custom-font"
           *ngIf="timeInSeconds && timeInSeconds > 0"
-          style="font-size: 1.2em;">{{timer.displayTime}}
+          style="font-size: 1em !important;">{{timer.displayTime}}
       </h3>
     </div>
     <button ion-button item-end color="customColor"
             class="custom-font"
-            style="font-size: 0.9em; margin-top: -3px;" (click)="stop()">থামুন</button>
+            style="font-size: 1em !important; margin-top: -3px;" (click)="stop()">থামুন</button>
 
   </ion-item>
 </ion-content>
