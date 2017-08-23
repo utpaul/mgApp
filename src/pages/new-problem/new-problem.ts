@@ -83,6 +83,10 @@ export class NewProblemPage {
 
   }
 
+  status(){
+    this.navCtrl.setRoot('page-home');
+  }
+
 
 
 }
