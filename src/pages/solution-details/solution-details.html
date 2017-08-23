@@ -15,31 +15,26 @@
   <ion-list padding-horizontal>
 
     <ion-item-divider sticky>
-      <ion-label text-center>
-          <span style="color:#000 !important;
-          font-weight: bold;
-          font-size: 18px;">
-            সমাধানের তারিখঃ {{loadData.solution_time}}
-          </span>
+
+      <ion-label style="font-size: 1.2em !important;" text-center>
+        সমাধানের তারিখঃ {{loadData.solution_time | date: 'dd-MM-yyyy'}}
       </ion-label>
+
     </ion-item-divider>
 
     <ion-item no-border detail-none>
-      <h1 text-center>সমস্যা নম্বরঃ {{loadData.problem_id}}</h1>
-      <h2 style="font-size:23px !important;">সমস্যা তারিখঃ {{loadData.problem_entry_time}}</h2>
-      <h2 style="font-size:23px !important;">সমস্যার বিষয়ঃ {{loadData.problem_category_text}}</h2>
-      <h2 style="font-size:23px !important;">যেখানে সমস্যাঃ {{loadData.problem_stage_text}}</h2>
-      <h2 style="font-size:23px !important;">সমস্যা বিবরণঃ  {{loadData.problem_description}}</h2>
-      <h2 style="font-size:23px !important;">সমস্যার উৎথাপকঃ {{loadData.problem_owner}}</h2>
+      <h4 text-wrap>সমস্যা নম্বরঃ {{loadData.problem_id}}</h4>
+      <h4 text-wrap>সমস্যা তারিখঃ {{loadData.problem_entry_date}}</h4>
+      <h4 text-wrap>সমস্যার বিষয়ঃ {{loadData.problem_category_text}}</h4>
+      <h4 text-wrap>যেখানে সমস্যাঃ {{loadData.problem_stage_text}}</h4>
+      <h4 text-wrap>সমস্যা বিবরণঃ  {{loadData.problem_description}}</h4>
+      <h4 text-wrap>সমস্যার উৎথাপকঃ {{loadData.problem_owner}}</h4>
     </ion-item>
 
     <div *ngIf="loadData.problem_image !='---'">
       <ion-item-divider sticky >
-        <ion-label text-center>
-          <span style="color:#000 !important;
-          font-size: 14px;">
-           সমস্যার চিত্র তালিকা
-          </span>
+        <ion-label style="font-size: 1em !important;" text-center>
+          সমস্যার চিত্র তালিকা
         </ion-label>
       </ion-item-divider>
 
@@ -57,11 +52,8 @@
     <div *ngIf="loadData.problem_record !='---'">
 
       <ion-item-divider sticky>
-        <ion-label text-center>
-          <span style="color:#000 !important;
-          font-size: 14px;">
-           সমস্যার অডিও ফাইল
-          </span>
+        <ion-label style="font-size: 1em !important;" text-center>
+          সমস্যার অডিও ফাইল
         </ion-label>
       </ion-item-divider>
 
@@ -70,26 +62,23 @@
   </ion-list>
 
   <ion-list padding-horizontal>
-    <ion-list-header text-center
-                     style="color: #000;
-                      font-weight: bold;
-                      font-size: 18px;">
-      সমস্যার সমাধান
-    </ion-list-header>
 
-    <ion-item no-border detail-none>
-      <h2 style="font-size:23px !important;">সমাধানের বিবরণঃ  {{loadData.problem_description}}</h2>
-      <h2 style="font-size:23px !important;">সমাধানের মানুষঃ {{loadData.solution_owner}}</h2>
+    <ion-item-divider sticky>
+      <ion-label style="font-size: 1.2em !important;" text-center>
+        সমস্যার সমাধান
+      </ion-label>
+    </ion-item-divider>
+
+    <ion-item>
+      <h4>সমাধানের বিবরণঃ  {{loadData.solution_description}}</h4>
+      <h4>সমাধানের মানুষঃ {{loadData.solution_owner}}</h4>
     </ion-item>
 
     <div *ngIf="loadData.solution_record !='---'">
 
       <ion-item-divider sticky>
-        <ion-label text-center>
-          <span style="color:#000 !important;
-          font-size: 14px;">
-           সমস্যার অডিও ফাইল
-          </span>
+        <ion-label style="font-size: 1em !important;" text-center>
+          সমস্যার অডিও ফাইল
         </ion-label>
       </ion-item-divider>
 

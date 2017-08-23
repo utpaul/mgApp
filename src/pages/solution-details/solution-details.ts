@@ -21,6 +21,10 @@ export class SolutionDetailsPage implements OnInit{
   ngOnInit(){
 
     this.loadData = this.navParams.data;
+
+    if(this.loadData.flag){
+      console.log(this.loadData);
+    }
     console.log(this.loadData);
     if(this.loadData.problem_image != '---'){
       this.imagesList = this.loadData.problem_image.split(",");
