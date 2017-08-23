@@ -21,6 +21,7 @@ export class ProblemFormPage implements OnInit{
   public SELECT_STAGE_LABEL:any;
   private base64Image='assets/img/cameraIcon .png';
   private photoLists =[];
+  private QUESTION_TYPE:any;
 
   constructor(private formBuilder: FormBuilder,
               private locationAccuracy: LocationAccuracy,
@@ -44,6 +45,11 @@ export class ProblemFormPage implements OnInit{
     this.selectOptions = {
       mode: 'md'
     };
+
+    this.QUESTION_TYPE=[
+      {text:'হাঁ', value:'1'},
+      {text:'না', value:'2'}
+    ];
 
     this.SELECT_SUBJECT_LABEL=[
       {text:'সবজি', value:'1'},
@@ -83,7 +89,8 @@ export class ProblemFormPage implements OnInit{
       audio:[''],
       description: [''],
       latitude:[''],
-      longitude:['']
+      longitude:[''],
+      questionType:['',[Validators.required]]
     });
 
     if(this.platform.is('android')){

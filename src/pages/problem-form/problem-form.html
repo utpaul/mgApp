@@ -27,7 +27,7 @@
                       formControlName="category">
             <ion-option *ngFor="let eachColor of SELECT_SUBJECT_LABEL"
                         [value]="eachColor.value">
-              <p style="font-size: 22px !important;">{{eachColor.text}}</p>
+              <h4>{{eachColor.text}}</h4>
             </ion-option>
           </ion-select>
         </ion-item>
@@ -44,7 +44,7 @@
                       formControlName="stage">
             <ion-option *ngFor="let eachColor of SELECT_STAGE_LABEL"
                         [value]="eachColor.value">
-              <p style="font-size: 22px !important;">{{eachColor.text}}</p>
+              <h4>{{eachColor.text}}</h4>
             </ion-option>
           </ion-select>
         </ion-item>
@@ -75,25 +75,41 @@
       <audio-input duration="120"
                    title="আইটেমটি প্লে করুন"
                    formControlName="audio">
-        <span>বলুন</span>
+        <span style="font-size: 1em !important;">বলুন</span>
       </audio-input>
 
     </div>
 
 
     <ion-item-group>
-      <div text-left style="margin-bottom: 8px;">বিবরণ</div>
+      <ion-label text-left style="margin-bottom: 8px;
+      font-size: 1em !important;">বিবরণ</ion-label>
       <ion-textarea elastic
                     placeholder="বর্ণনা করুন"
                     formControlName="description">
       </ion-textarea>
     </ion-item-group>
 
+    <ion-item-group>
+      <ion-item margin-top
+                padding-horizontal
+                class="custom-border-color">
+        <ion-label>পাবলিক প্রশ্ন</ion-label>
+        <ion-select okText="ওকে" cancelText="বাতিল"
+                    [selectOptions]="selectOptions"
+                    formControlName="questionType">
+          <ion-option *ngFor="let eachColor of QUESTION_TYPE"
+                      [value]="eachColor.value">
+            <h4>{{eachColor.text}}</h4>
+          </ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-item-group>
+
     <div margin>
       <button ion-button block
               color="customColor"
               type="submit"
-              style="font-size: 1.5em;"
               [disabled]="!registrationForm.valid">
         <span style="margin-top: -3px !important;">পাঠান</span>
       </button>
