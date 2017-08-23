@@ -9,7 +9,6 @@ export class User {
     this._id = id;
     this._full_name = full_name;
     this._authority= authority;
-
   }
 
 
