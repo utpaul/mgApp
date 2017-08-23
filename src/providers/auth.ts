@@ -100,9 +100,11 @@ export class AuthProvider {
 
     if (typeof token !== 'undefined' && token != null) {
       let payload = this.jwtHelper.decodeToken(token);
+      this._phoneNo=payload.user.phone;
+      console.log(this._phoneNo);
       user = payload.user;
-      console.log(user);
     }
+
     return user;
   }
 
@@ -118,10 +120,6 @@ export class AuthProvider {
 
       this.useCredentials(token);
     }
-  }
-
-  storeUserPhone(token){
-    this._phoneNo=token;
   }
 
   destroyUserCredentials() {
@@ -150,14 +148,13 @@ export class AuthProvider {
 
       this.platform.ready().then(() => {
 
-          this._http.post('/api/' + 'access-token',
+          this._http.post(this.baseUrl + 'access-token',
             "phone=" + phone +
             "&password=" + password,
             { headers: this.contentHeader })
             .map(res => res.json())
             .subscribe(
               data => {
-                this.storeUserPhone(phone);
                 console.log(data.token);
                 this.authSuccess(data.token);
                 resolve('Login success.');
