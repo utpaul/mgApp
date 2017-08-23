@@ -16,28 +16,28 @@
   <ion-list padding-horizontal>
 
     <ion-item-divider sticky>
-      <ion-label text-center>
-          <span style="color:#000 !important;font-size: 18px;">
-            সমস্যা উত্থাপনের তারিখঃ{{loadData.entry_time2}}
-          </span>
+      <ion-label text-center
+                 style="font-size: 1.2em !important;
+                        color: #000; font-weight: bold;">
+        সমস্যা উত্থাপনের তারিখঃ {{loadData.entry_time2}}
       </ion-label>
     </ion-item-divider>
 
     <ion-item no-border detail-none>
-      <h2 style="font-size:23px !important;" text-center>সমস্যা নম্বরঃ {{loadData.id}}</h2>
-      <h2 style="font-size:23px !important;">সমস্যার বিষয়ঃ {{loadData.category_text}}</h2>
-      <h2 style="font-size:20px !important;">যেখানে সমস্যাঃ {{loadData.stage_text}}</h2>
-      <h2 style="font-size:20px !important;" text-wrap>সমস্যার বিবরণঃ {{loadData.description}}</h2>
-      <h2 style="font-size:23px !important;">সমস্যার উৎথাপকঃ {{loadData.username}}</h2>
+      <h4 text-center>সমস্যা নম্বরঃ {{loadData.id}}</h4>
+      <h4 text-wrap>সমস্যার বিষয়ঃ {{loadData.category_text}}</h4>
+      <h4 text-wrap>যেখানে সমস্যাঃ {{loadData.stage_text}}</h4>
+      <h4 text-wrap>সমস্যার বিবরণঃ {{loadData.description}}</h4>
+      <h4 text-wrap>সমস্যার উৎথাপকঃ {{loadData.username}}</h4>
     </ion-item>
 
     <div *ngIf="loadData.image !='---'">
       <ion-item-divider sticky >
         <ion-label text-center>
-          <span style="color:#000 !important;
-          font-size: 14px;">
+          <h4 style="font-size: 1em !important; color:#000;">
             চিত্র তালিকা
-          </span>
+          </h4>
+
         </ion-label>
       </ion-item-divider>
 
@@ -52,14 +52,13 @@
 
     </div>
 
-    <div *ngIf="loadData.record !='---'">
+    <div *ngIf="loadData.recordData !='---'">
 
       <ion-item-divider sticky>
         <ion-label text-center>
-          <span style="color:#000 !important;
-          font-size: 14px;">
-           অডিও ফাইল
-          </span>
+          <h4 style="font-size: 1em !important; color:#000;">
+            অডিও ফাইল
+          </h4>
         </ion-label>
       </ion-item-divider>
 
@@ -75,13 +74,13 @@
       <audio-input duration="120"
                    title="আইটেমটি প্লে করুন"
                    formControlName="audio">
-        <span>বলুন</span>
+        <span style="font-size: 1em !important;">বলুন</span>
       </audio-input>
 
     </div>
 
     <ion-item-group padding-horizontal>
-      <div text-left style="margin-bottom: 8px;">বিবরণ</div>
+      <div text-left style="font-size: 1em !important;">বিবরণ</div>
       <ion-textarea elastic
                     placeholder="বর্ণনা করুন"
                     formControlName="description">
@@ -92,13 +91,10 @@
       <button ion-button block
               color="customColor"
               type="submit"
-              style="font-size: 1.5em;"
-              [disabled]="!solutionForm.valid">
-        <span style="margin-top: -3px !important;">পাঠান</span>
+              [disabled]="!solutionForm.valid">পাঠান
       </button>
     </div>
 
   </form>
-
 
 </ion-content>

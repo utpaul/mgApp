@@ -29,7 +29,6 @@ export class AdminProblemFormPage implements OnInit{
       this.imagesList = this.loadData.image.split(",");
     }
 
-    //this.imagesList = this.loadData.image
     this.solutionForm = this.formBuilder.group({
       id:[this.loadData.id],
       audio:[''],
