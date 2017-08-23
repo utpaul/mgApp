@@ -1,10 +1,12 @@
 .ios,.md{
 
   page-tree-select {
-
-
     .item-radio.item-inner .input-wrapper ion-label {
       margin-left: 10px !important;
+    }
+
+    .input-wrapper{
+      margin-bottom:-2px
     }
 
     .submit-btn{
@@ -18,13 +20,22 @@
       background-color: #fff;
     }
 
-    .item-md{
-      padding-left: 10px !important;
+    ion-list-header{
+      background-color: #ecf0f1;
+      border-radius: 5px;
     }
 
-    .margin-padding{
-      margin-top: 4px;
-      padding: 10px;
+    .item-md{
+      padding-left: 8px !important;
+    }
+
+    ion-col{
+      margin-top: 8px;
+      margin-bottom: 0px;
+    }
+
+    h4{
+      font-size: 1em !important;
     }
 
   }

@@ -32,7 +32,7 @@
       <ion-item margin-top
                 padding-horizontal
                 class="custom-border-color">
-        <ion-label>লাগানো তারিখ</ion-label>
+        <ion-label class="custom-label">লাগানো তারিখ</ion-label>
         <ion-datetime displayFormat="MMM DD YYYY"
                       formControlName="dateOfSeeding"
                       doneText="ওকে" cancelText="বাতিল"
@@ -46,7 +46,7 @@
       <ion-item margin-top
                 padding-horizontal
                 class="custom-border-color">
-        <ion-label>লাগানোর ধরণ</ion-label>
+        <ion-label class="custom-label">লাগানোর ধরণ</ion-label>
         <ion-select okText="ওকে" cancelText="বাতিল"
                     [selectOptions]="selectOptions"
                     formControlName="typeOfSeeding">
@@ -59,7 +59,7 @@
     </ion-item-group>
 
     <ion-item-group *ngIf="selectedTreeFilterForm.controls.typeOfSeeding.value == '2'">
-      <div text-left >সংখ্যা</div>
+      <div text-left class="custom-label">সংখ্যা</div>
       <ion-input type="number"
                  formControlName="numberOfGroupElement"
                  placeholder="সংখ্যা প্রবেশ করান">
@@ -73,7 +73,7 @@
 
     <ion-item-group
       *ngIf="selectedTreeFilterForm.controls.typeOfSeeding.value == '2'">
-      <div text-left >জৈব সারের পরিমান</div>
+      <div text-left class="custom-label" >জৈব সারের পরিমান</div>
       <ion-input type="number"
                  formControlName="chemicalFartilizer"
                  placeholder="সংখ্যা প্রবেশ করান">
@@ -82,7 +82,7 @@
 
     <ion-item-group
       *ngIf="selectedTreeFilterForm.controls.typeOfSeeding.value == '2'">
-      <div text-left>রাসায়নিক সারের পরিমান</div>
+      <div text-left class="custom-label">রাসায়নিক সারের পরিমান</div>
       <ion-input type="number"
                  formControlName="organicFartilizer"
                  placeholder="সংখ্যা প্রবেশ করান">
@@ -92,7 +92,8 @@
     <button ion-button block
             color="customColor"
             type="submit"
-            [disabled]="!selectedTreeFilterForm.valid">পাঠান
+            [disabled]="!selectedTreeFilterForm.valid"
+            class="custom-label">পাঠান
     </button>
 
 

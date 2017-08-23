@@ -14,8 +14,8 @@
 <ion-content>
 
   <ion-list padding-horizontal>
-    <ion-item>
-      <ion-label style="color:#000 !important;">ঋতু</ion-label>
+    <ion-item margin-top>
+      <ion-label style="color:#000 !important; font-size: 1em !important;">ঋতু</ion-label>
       <ion-select [(ngModel)]="searchElement.season" interface="popover">
         <ion-option value="1">গ্রীষ্মকালীন</ion-option>
         <ion-option value="2" >শীতকালীন</ion-option>
@@ -24,7 +24,7 @@
     </ion-item>
 
     <ion-item margin-bottom>
-      <ion-label style="color:#000 !important;">ধরণ</ion-label>
+      <ion-label style="color:#000 !important;font-size: 1em !important;">ধরণ</ion-label>
       <ion-select [(ngModel)]="searchElement.type" interface="popover">
         <ion-option value="1">ফুল</ion-option>
         <ion-option value="2">ফল</ion-option>
@@ -38,31 +38,35 @@
             class="submit-btn"
             type="button"
             [disabled]="searchElement.type == ' ' || searchElement.season == ' '"
-            (click)="submitValue()" style="font-size: 20px; margin-top:3px;">খুঁজুন
+            (click)="submitValue()" style="font-size: 1em !important;
+            margin-top:3px;">খুঁজুন
     </button>
 
   </ion-list>
 
   <ion-list *ngIf="loadedList?.length > 0"
-            style="margin-top: 10px;" margin-horizontal>
+            style="margin-top: 25px;" margin-horizontal>
 
-    <ion-item *ngFor="let eachValue of loadedList; let i = index"
-            [ngClass]="{'section-active': eachValue.flag != '1', 'section': eachValue.flag == '1'}">
-      <ion-thumbnail item-start>
-        <img src="{{imageUrl + eachValue.photo}}">
-      </ion-thumbnail>
-      <h2 text-wrap>বাংলা নামঃ {{eachValue.banglaName}}</h2>
-      <h2 text-wrap>ইংরেজি নামঃ {{eachValue.englishName}}</h2>
-      <h2 text-wrap>বৈজ্ঞানিক নামঃ {{eachValue.scientificName}}</h2>
-      <h2 text-wrap>রোপন বা বপন সময়ঃ {{eachValue.seedingTime}}</h2>
+    <ion-list-header *ngFor="let eachValue of loadedList; let i = index"
+                     no-lines style="margin-bottom: 23px;">
 
-      <ion-grid no-padding>
+      <ion-item [ngClass]="{'section-active': eachValue.flag != '1', 'section': eachValue.flag == '1'}" no-lines>
+        <ion-thumbnail item-start>
+          <img src="{{imageUrl + eachValue.photo}}">
+        </ion-thumbnail>
+        <h4 text-wrap>বাংলা নামঃ {{eachValue.banglaName}}</h4>
+        <h4 text-wrap>ইংরেজি নামঃ {{eachValue.englishName}}</h4>
+        <h4 text-wrap>বৈজ্ঞানিক নামঃ {{eachValue.scientificName}}</h4>
+        <h4 text-wrap>রোপন বা বপন সময়ঃ {{eachValue.seedingTime}}</h4>
+      </ion-item>
+
+      <ion-grid no-padding no-margin>
         <ion-row>
           <ion-col text-left col-md-3>
             <button ion-button color="customColor"
                     [navPush]="detailsListPage"
                     [navParams]="eachValue" text-wrap>
-              <span>বিস্তারিত</span>
+              <span style="font-size: 1em !important;">বিস্তারিত</span>
             </button>
           </ion-col>
 
@@ -70,7 +74,7 @@
                    offset-md-2>
             <button ion-button color="customColor"
                     (click)="addToSelectedList(i)" text-wrap>
-              <span>বাগানের জন্য লাগাতে চাই</span>
+              <span style="font-size: 1em !important;">বাগানের জন্য লাগাতে চাই</span>
 
             </button>
           </ion-col>
@@ -79,14 +83,14 @@
                    offset-md-2>
             <button ion-button color="customColor"
                     (click)="addToSelectedList(i)" text-wrap>
-              <span>বাগানের জন্য নির্বাচিত</span>
+              <span style="font-size: 1em !important;">বাগানের জন্য নির্বাচিত</span>
             </button>
           </ion-col>
 
         </ion-row>
       </ion-grid>
 
-    </ion-item>
+    </ion-list-header>
 
   </ion-list>
 
