@@ -26,8 +26,7 @@
                   *ngIf="open">
         </ion-icon>
 
-        <h2 style="font-size: 22px !important;
-             margin:16px;font-weight: bold;"
+        <h2 style="margin:16px;"
             class="accordion-list">
           পাসওয়ার্ড পরিবর্তন
         </h2>
@@ -56,8 +55,7 @@
                   class="submit-btn"
                   type="button"
                   [disabled]="!(password.newPassword) || !(password.oldPassword)"
-                  (click)="changePassword()"
-                  style="font-size: 20px; margin-top:3px;">পাসওয়ার্ড পরিবর্তন করুন
+                  (click)="changePassword()">পাসওয়ার্ড পরিবর্তন করুন
           </button>
 
         </div>
