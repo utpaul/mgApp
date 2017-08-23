@@ -11,6 +11,8 @@
       border-radius: 50%;
       height: 30px;
       width: 30px;
+      padding-top: 7px;
+      padding-left: 6px;
       color: #00953B;
       border: 1px solid #DEDEDE;
       background: inherit;
@@ -26,6 +28,8 @@
       color: #ecf0f1;
       height: 30px;
       width: 30px;
+      padding-top: 7px;
+      padding-left: 6px;
       border:1px solid #ecf0f1;
       background: inherit;
     }
@@ -72,6 +76,10 @@
     }
     .scroll-content {
       overflow-y: auto;
+    }
+
+    h4{
+      font-size: 1em !important;
     }
 
 

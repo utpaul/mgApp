@@ -26,22 +26,22 @@
                   *ngIf="item.open">
         </ion-icon>
 
-        <h2 style="font-size: 22px !important;
-             margin:16px;font-weight: bold;">
+        <h2 style="margin:16px;">
           {{item.banglaName}}
         </h2>
 
-        <ion-badge item-end>{{item.eachTreeService}}</ion-badge>
+        <ion-badge item-end>
+          <span style="font-size: 1em !important;">{{item.eachTreeService}}</span></ion-badge>
       </button>
 
       <ion-card *ngIf="item.open">
         <ion-card-content>
-          <h2 text-wrap margin-top> লাগানো তারিখঃ {{item.dateofSeedingTime}}</h2>
-          <h2 text-wrap *ngIf="item.typeOfSeeding == '1'"> লাগানোর ধরণঃ একক</h2>
-          <h2 text-wrap *ngIf="item.typeOfSeeding == '2'"> লাগানোর ধরণঃ গ্রুপ</h2>
-          <h2 text-wrap *ngIf="item.typeOfSeeding == '2'">সংখ্যাঃ {{item.numberOfGroupElement}}</h2>
-          <h2 text-wrap *ngIf="item.typeOfSeeding == '2'">জৈব সারের পরিমানঃ {{item.chemicalFartilizer}}</h2>
-          <h2 text-wrap *ngIf="item.typeOfSeeding == '2'" >রাসায়নিক সারের পরিমানঃ {{item.organicFartilizer}}</h2>
+          <h4 text-wrap margin-top> লাগানো তারিখঃ {{item.dateofSeedingTime}}</h4>
+          <h4 text-wrap *ngIf="item.typeOfSeeding == '1'"> লাগানোর ধরণঃ একক</h4>
+          <h4 text-wrap *ngIf="item.typeOfSeeding == '2'"> লাগানোর ধরণঃ গ্রুপ</h4>
+          <h4 text-wrap *ngIf="item.typeOfSeeding == '2'">সংখ্যাঃ {{item.numberOfGroupElement}}</h4>
+          <h4 text-wrap *ngIf="item.typeOfSeeding == '2'">জৈব সারের পরিমানঃ {{item.chemicalFartilizer}}</h4>
+          <h4 text-wrap *ngIf="item.typeOfSeeding == '2'" >রাসায়নিক সারের পরিমানঃ {{item.organicFartilizer}}</h4>
         </ion-card-content>
 
         <ion-row  *ngIf="item.children.length == 0">
@@ -62,9 +62,9 @@
       <ion-list *ngIf="item.children.length > 0 && item.open"
                 style="margin-top:10px;" no-padding>
         <ion-item *ngFor="let child of item.children;let j= index">
-          <h2 text-wrap margin-left margin-top>পরিচর্যার তারিখঃ {{child.serviceDate}}</h2>
-          <h2 text-wrap margin-left>পরিচর্যার ধরণঃ {{child.serviceType}}</h2>
-          <h2 text-wrap margin-left margin-bottom>পরিচর্যার বিবরণঃ {{child.description}}</h2>
+          <h4 text-wrap margin-left margin-top>পরিচর্যার তারিখঃ {{child.serviceDate}}</h4>
+          <h4 text-wrap margin-left>পরিচর্যার ধরণঃ {{child.serviceType}}</h4>
+          <h4 text-wrap margin-left margin-bottom>পরিচর্যার বিবরণঃ {{child.description}}</h4>
         </ion-item>
 
         <ion-row>
