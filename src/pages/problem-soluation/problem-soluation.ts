@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController} from 'ionic-angular';
+import {IonicPage, NavController, App} from 'ionic-angular';
 import {L2nHttp} from "../../providers/l2n-http";
 import {AuthProvider} from "../../providers/auth";
 
@@ -15,7 +15,8 @@ export class ProblemSoluationPage {
 
   constructor(private l2nHttp:L2nHttp,
               private auth:AuthProvider,
-              public navCtrl: NavController) {
+              public navCtrl: NavController,
+              private app: App) {
 
   }
 
@@ -49,7 +50,7 @@ export class ProblemSoluationPage {
   }
 
   status(){
-    this.navCtrl.setRoot('page-home');
+    this.app.getRootNav().setRoot('page-home');
   }
 
 }

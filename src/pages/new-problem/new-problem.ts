@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController} from 'ionic-angular';
+import {IonicPage, NavController, App} from 'ionic-angular';
 import {API_CONFIG} from "../../constants/api";
 import {L2nHttp} from "../../providers/l2n-http";
 import {BlockUi} from "../../providers/block-ui";
@@ -20,7 +20,8 @@ export class NewProblemPage {
   constructor(private l2nHttp:L2nHttp,
               private blockUi:BlockUi,
               public navCtrl: NavController,
-              private auth:AuthProvider) {
+              private auth:AuthProvider,
+              private app: App) {
 
     this.imageUrl =API_CONFIG.misBase;
 
@@ -84,7 +85,7 @@ export class NewProblemPage {
   }
 
   status(){
-    this.navCtrl.setRoot('page-home');
+    this.app.getRootNav().setRoot('page-home');
   }
 
 
