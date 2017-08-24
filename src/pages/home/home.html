@@ -27,7 +27,8 @@
 
   <div *ngIf="segment === 'all'">
 
-    <ion-card  *ngFor="let item of loadedData">
+    <ion-card  *ngFor="let item of loadedData" padding-horizontal>
+
       <ion-item>
         <ion-avatar item-start>
           <img src="{{imageUrl + item.userPhoto}}">
@@ -35,6 +36,15 @@
         <h4>{{item.userName}}</h4>
         <h4>{{item.dateOfQuestion1}}</h4>
       </ion-item>
+
+      <!--<ion-slides class="image-slider" loop="true" slidesPerView="0" *ngIf="">-->
+        <!--<ion-slide *ngFor="let img of imagesList">-->
+          <!--<img src="{{imageUrl + img}}"-->
+               <!--class="thumb-img" imageViewer/>-->
+        <!--</ion-slide>-->
+      <!--</ion-slides>-->
+
+
       <ion-card-content>
         <h4 text-wrap>সমস্যা নম্বরঃ {{item.id}}</h4>
         <h4 text-wrap>সমস্যার বিষয়ঃ {{item.categoryText}}</h4>
@@ -43,16 +53,19 @@
       </ion-card-content>
 
       <ion-row>
-        <ion-col (click)="giveSolution(item)">
+        <ion-col left text-left
+          (click)="giveSolution(item)">
           <button ion-button icon-left clear small>
             <ion-icon name="text"></ion-icon>
             <div>সমাধান দাও</div>
           </button>
         </ion-col>
-        <ion-col center text-center>
-          <ion-note>
-            {{item.difference}}
-          </ion-note>
+        <ion-col right text-right>
+          <button ion-button clear small>
+            <ion-note style="text-transform: capitalize;">
+              {{item.difference}}
+            </ion-note>
+          </button>
         </ion-col>
       </ion-row>
 
@@ -66,7 +79,7 @@
 
   <div *ngIf="segment === 'notification'">
 
-    <ion-card *ngFor="let item of loadedDataList">
+    <ion-card *ngFor="let item of loadedDataList" padding-horizontal>
 
       <ion-item>
         <ion-avatar item-start>
@@ -83,16 +96,19 @@
 
       <ion-row>
         <ion-col
+          left text-left
           (click)="solutionDetails(item)">
           <button ion-button icon-left clear small>
             <ion-icon name="text"></ion-icon>
             <div>সমাধান</div>
           </button>
         </ion-col>
-        <ion-col center text-center>
-          <ion-note>
-            {{item.difference}}
-          </ion-note>
+        <ion-col right text-right>
+          <button ion-button clear small>
+            <ion-note style="text-transform: capitalize;">
+              {{item.difference}}
+            </ion-note>
+          </button>
         </ion-col>
       </ion-row>
 

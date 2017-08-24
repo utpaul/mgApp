@@ -10,6 +10,7 @@ import {API_CONFIG} from "../../constants/api";
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
+
 })
 export class HomePage {
 
@@ -18,12 +19,12 @@ export class HomePage {
   private loadedData =[];
   private loadedDataList =[];
   private converter:any;
-
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private l2nHttp:L2nHttp) {
     this.imageUrl =API_CONFIG.misBase4;
   }
+
 
   ionViewDidEnter(){
 
@@ -32,27 +33,25 @@ export class HomePage {
         data => {
           this.loadedData=data.list;
           this.loadedDataList = data.notification;
-          console.log(this.loadedDataList);
 
+          console.log(this.loadedData);
             for(let i=0; i<this.loadedData.length;i++){
 
             let date1: string = this.loadedData[i].entryDateTime;
             let diffInMs: number = Date.parse(new Date().toLocaleString()) - Date.parse(date1);
             let diffInMin: number = diffInMs / 1000 / 60;
 
-            if(Math.ceil(diffInMin)>59){
+            if(Math.floor(diffInMin)>59){
 
-              if(Math.ceil(diffInMin/60) > 23){
-                this.loadedData[i].difference  =Math.ceil(diffInMin/(60*24)) + " Days Ago";
+              if(Math.floor(diffInMin/60) > 23){
+                this.loadedData[i].difference  =Math.floor(diffInMin/(60*24)) + " Days Ago";
               }else{
-                this.loadedData[i].difference  =Math.ceil(diffInMin/60) + " Hours Ago";
+                this.loadedData[i].difference  =Math.floor(diffInMin/60) + " Hours Ago";
               }
 
             }else {
               this.loadedData[i].difference  =Math.ceil(diffInMin) + " Min Ago";
             }
-
-
 
             this.converter =(this.loadedData[i].dateOfQuestion).split('-');
             if(parseInt(this.converter[1]) ==1){
@@ -92,12 +91,12 @@ export class HomePage {
 
             console.log(diffInMin);
 
-            if (Math.ceil(diffInMin) > 59) {
+            if (Math.floor(diffInMin) > 59) {
 
-              if (Math.ceil(diffInMin / 60) > 23) {
-                this.loadedDataList[i].difference = Math.ceil(diffInMin / (60*24)) + " Days Ago";
+              if (Math.floor(diffInMin / 60) > 23) {
+                this.loadedDataList[i].difference = Math.floor(diffInMin / (60*24)) + " Days Ago";
               } else {
-                this.loadedDataList[i].difference = Math.ceil(diffInMin / 60) + " Hours Ago";
+                this.loadedDataList[i].difference = Math.floor(diffInMin / 60) + " Hours Ago";
               }
 
             } else {
