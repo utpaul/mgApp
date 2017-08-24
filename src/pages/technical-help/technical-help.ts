@@ -15,5 +15,4 @@ export class TechnicalHelpPage {
     this.tab1='NewProblemPage';
     this.tab2='ProblemSoluationPage';
   }
-
 }
