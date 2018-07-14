@@ -23,7 +23,7 @@ export class ImageShowPage implements OnInit {
     this.id = this.navParams.get('id');
     let formData = this.navParams.data;
 
-    this.l2nHttp.postRequest('photo-getting',formData, 'প্রতীক্ষা করুন...').then(
+    this.l2nHttp.postRequest('photo-getting',formData, 'তথ্য আহরিত হচ্ছে...').then(
       data => {
         this.images =data;
       }, err => {

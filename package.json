@@ -71,25 +71,6 @@
     },
     "description": "An Ionic project",
     "cordova": {
-        "plugins": {
-            "cordova-plugin-console": {},
-            "cordova-plugin-device": {},
-            "cordova-plugin-splashscreen": {},
-            "cordova-plugin-statusbar": {},
-            "cordova-plugin-whitelist": {},
-            "ionic-plugin-keyboard": {},
-            "cordova-plugin-network-information": {},
-            "cordova-plugin-geolocation": {},
-            "cordova-plugin-request-location-accuracy": {},
-            "cordova-plugin-audio-recorder-api": {},
-            "cordova-plugin-camera": {},
-            "cordova-plugin-file": {},
-            "cordova-plugin-screen-orientation": {},
-            "cordova-plugin-media": {},
-            "com.synconset.imagepicker": {
-                "PHOTO_LIBRARY_USAGE_DESCRIPTION": "Image Picker"
-            }
-        },
         "platforms": [
             "android"
         ]

@@ -25,7 +25,7 @@ export class ProblemSoluationPage {
     if(this.auth.currentUser.authority =='1'){
 
       this.adminFlag = true;
-      this.l2nHttp.getRequest('solution-lists','ডাটা লোড করা হচ্ছে...').then(
+      this.l2nHttp.getRequest('solution-lists','তথ্য আহরিত হচ্ছে...').then(
         data => {
           this.loadedData=data;
           console.log(this.loadedData)
@@ -34,7 +34,7 @@ export class ProblemSoluationPage {
       );
     }else{
       this.adminFlag = false;
-      this.l2nHttp.getRequest('solution-lists','ডাটা লোড করা হচ্ছে...').then(
+      this.l2nHttp.getRequest('solution-lists','তথ্য আহরিত হচ্ছে...').then(
         data => {
           this.loadedData=data;
           console.log(this.loadedData)

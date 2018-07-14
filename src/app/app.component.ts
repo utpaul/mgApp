@@ -69,6 +69,7 @@ export class MyApp {
       this.eventCtrl.subscribe('network:offline', () => {
 
       });
+
     });
 
   }

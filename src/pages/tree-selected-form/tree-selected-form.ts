@@ -63,7 +63,7 @@ export class TreeSelectedFormPage implements OnInit {
     console.log(this.selectedTreeFilterForm.value);
 
     this.l2nHttp.postRequest('selected-fruit-list-post',
-      this.selectedTreeFilterForm.value, 'ডেটা সংরক্ষণ হচ্ছে...').then(
+      this.selectedTreeFilterForm.value, 'তথ্য সংগৃহীত হচ্ছে...').then(
       data => {
         console.log('success');
         this.navCtrl.popToRoot();

@@ -35,7 +35,7 @@
         <ion-label class="custom-label">লাগানো তারিখ</ion-label>
         <ion-datetime displayFormat="MMM DD YYYY"
                       formControlName="dateOfSeeding"
-                      doneText="ওকে" cancelText="বাতিল"
+                      doneText="ঠিক আছে(ok)" cancelText="বাতিল"
                       placeholder="তারিখ প্রবেশ করুন">
         </ion-datetime>
       </ion-item>
@@ -47,7 +47,7 @@
                 padding-horizontal
                 class="custom-border-color">
         <ion-label class="custom-label">লাগানোর ধরণ</ion-label>
-        <ion-select okText="ওকে" cancelText="বাতিল"
+        <ion-select okText="ঠিক আছে(ok)" cancelText="বাতিল"
                     [selectOptions]="selectOptions"
                     formControlName="typeOfSeeding">
           <ion-option *ngFor="let eachColor of type"

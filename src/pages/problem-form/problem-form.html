@@ -22,7 +22,7 @@
                   padding-horizontal
                   class="custom-border-color">
           <ion-label>সমস্যার বিষয়</ion-label>
-          <ion-select okText="ওকে" cancelText="বাতিল"
+          <ion-select okText="ঠিক আছে(ok)" cancelText="বাতিল"
                       [selectOptions]="selectOptions"
                       formControlName="category">
             <ion-option *ngFor="let eachColor of SELECT_SUBJECT_LABEL"
@@ -39,7 +39,7 @@
                   padding-horizontal
                   class="custom-border-color">
           <ion-label>যেখানে সমস্যা</ion-label>
-          <ion-select okText="ওকে" cancelText="বাতিল"
+          <ion-select okText="ঠিক আছে(ok)" cancelText="বাতিল"
                       [selectOptions]="selectOptions"
                       formControlName="stage">
             <ion-option *ngFor="let eachColor of SELECT_STAGE_LABEL"
@@ -95,7 +95,7 @@
                 padding-horizontal
                 class="custom-border-color">
         <ion-label>পাবলিক প্রশ্ন</ion-label>
-        <ion-select okText="ওকে" cancelText="বাতিল"
+        <ion-select okText="ঠিক আছে(ok)" cancelText="বাতিল"
                     [selectOptions]="selectOptions"
                     formControlName="questionType">
           <ion-option *ngFor="let eachColor of QUESTION_TYPE"

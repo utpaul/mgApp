@@ -54,7 +54,7 @@ export class MyGardenCaringPage implements OnInit{
 
     console.log(this.servicesForm.value);
     this.l2nHttp.postRequest('service-each-tree',
-      this.servicesForm.value, 'ডেটা সংরক্ষণ হচ্ছে...').then(
+      this.servicesForm.value, 'তথ্য সংগৃহীত হচ্ছে...').then(
       data => {
         this.navCtrl.pop();
       }, err => {

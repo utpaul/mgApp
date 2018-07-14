@@ -39,7 +39,7 @@ export class AdminProblemFormPage implements OnInit{
 
   submitValue(){
 
-    this.l2nHttp.postRequest('solution-of-problem-save', this.solutionForm.value, 'ডেটা সংরক্ষণ হচ্ছে...').then(
+    this.l2nHttp.postRequest('solution-of-problem-save', this.solutionForm.value, 'ডতথ্য সংগৃহীত হচ্ছে...').then(
       data => {
         console.log('success');
         this.navCtrl.popToRoot();

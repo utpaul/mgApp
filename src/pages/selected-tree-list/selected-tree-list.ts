@@ -21,7 +21,7 @@ export class SelectedTreeListPage {
   ionViewWillEnter() {
 
     this.loadedList =[];
-    this.l2nHttp.getRequest('selected-tree-list','ডাটা লোড করা হচ্ছে...').then(
+    this.l2nHttp.getRequest('selected-tree-list','তথ্য আহরিত হচ্ছে...').then(
       data => {
         this.loadedList =data;
         console.log(this.loadedList);

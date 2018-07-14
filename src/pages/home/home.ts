@@ -14,7 +14,6 @@ import {API_CONFIG} from "../../constants/api";
 })
 export class HomePage {
 
-  private segment ='all';
   private imageUrl:any;
   private loadedData =[];
   private loadedDataList =[];
@@ -28,7 +27,7 @@ export class HomePage {
 
   ionViewDidEnter(){
 
-    this.l2nHttp.getRequest('public-question','ডাটা লোড করা হচ্ছে...')
+    this.l2nHttp.getRequest('public-question','তথ্য আহরিত হচ্ছে...')
       .then(
         data => {
           this.loadedData=data.list;
@@ -44,40 +43,40 @@ export class HomePage {
             if(Math.floor(diffInMin)>59){
 
               if(Math.floor(diffInMin/60) > 23){
-                this.loadedData[i].difference  =Math.floor(diffInMin/(60*24)) + " Days Ago";
+                this.loadedData[i].difference  =Math.floor(diffInMin/(60*24)) + " দিন পূর্বে";
               }else{
-                this.loadedData[i].difference  =Math.floor(diffInMin/60) + " Hours Ago";
+                this.loadedData[i].difference  =Math.floor(diffInMin/60) + " ঘন্টা পূর্বে";
               }
 
             }else {
-              this.loadedData[i].difference  =Math.ceil(diffInMin) + " Min Ago";
+              this.loadedData[i].difference  =Math.ceil(diffInMin) + " মিনিট পূর্বে";
             }
 
             this.converter =(this.loadedData[i].dateOfQuestion).split('-');
             if(parseInt(this.converter[1]) ==1){
-              this.loadedData[i].dateOfQuestion1 =this.converter[0]+' Jan '+this.converter[2];
+              this.loadedData[i].dateOfQuestion1 =this.converter[0]+' জানুয়ারী '+this.converter[2];
             }else if(parseInt(this.converter[1]) ==2){
-              this.loadedData[i].dateOfQuestion1 =this.converter[0]+' Feb '+this.converter[2];
+              this.loadedData[i].dateOfQuestion1 =this.converter[0]+' ফেব্রুয়ারী '+this.converter[2];
             }else if(parseInt(this.converter[1]) ==3){
-              this.loadedData[i].dateOfQuestion1 =this.converter[0]+' Mar '+this.converter[2];
+              this.loadedData[i].dateOfQuestion1 =this.converter[0]+' মার্চ '+this.converter[2];
             }else if(parseInt(this.converter[1]) ==4){
-              this.loadedData[i].dateOfQuestion1 =this.converter[0]+' Apr '+this.converter[2];
+              this.loadedData[i].dateOfQuestion1 =this.converter[0]+' এপ্রিল '+this.converter[2];
             }else if(parseInt(this.converter[1]) ==5){
-              this.loadedData[i].dateOfQuestion1 =this.converter[0]+' May '+this.converter[2];
+              this.loadedData[i].dateOfQuestion1 =this.converter[0]+' মে '+this.converter[2];
             }else if(parseInt(this.converter[1]) ==6){
-              this.loadedData[i].dateOfQuestion1 =this.converter[0]+' Jun '+this.converter[2];
+              this.loadedData[i].dateOfQuestion1 =this.converter[0]+' জুন '+this.converter[2];
             }else if(parseInt(this.converter[1]) ==7){
-              this.loadedData[i].dateOfQuestion1 =this.converter[0]+' Jul '+this.converter[2];
+              this.loadedData[i].dateOfQuestion1 =this.converter[0]+' জুলাই '+this.converter[2];
             }else if(parseInt(this.converter[1]) ==8){
-              this.loadedData[i].dateOfQuestion1 =this.converter[0]+' Aug '+this.converter[2];
+              this.loadedData[i].dateOfQuestion1 =this.converter[0]+' আগস্ট '+this.converter[2];
             }else if(parseInt(this.converter[1]) ==9){
-              this.loadedData[i].dateOfQuestion1 =this.converter[0]+' Sep '+this.converter[2];
+              this.loadedData[i].dateOfQuestion1 =this.converter[0]+' সেপ্টেম্বর '+this.converter[2];
             }else if(parseInt(this.converter[1]) ==10){
-              this.loadedData[i].dateOfQuestion1 =this.converter[0]+' Oct '+this.converter[2];
+              this.loadedData[i].dateOfQuestion1 =this.converter[0]+' অক্টোবর '+this.converter[2];
             }else if(parseInt(this.converter[1]) ==11){
-              this.loadedData[i].dateOfQuestion1 =this.converter[0]+' Nov '+this.converter[2];
+              this.loadedData[i].dateOfQuestion1 =this.converter[0]+' নভেম্বর '+this.converter[2];
             }else if(parseInt(this.converter[1]) ==12){
-              this.loadedData[i].dateOfQuestion1 =this.converter[0]+' Dec '+this.converter[2];
+              this.loadedData[i].dateOfQuestion1 =this.converter[0]+' ডিসেম্বর '+this.converter[2];
             }
 
         }
@@ -94,40 +93,40 @@ export class HomePage {
             if (Math.floor(diffInMin) > 59) {
 
               if (Math.floor(diffInMin / 60) > 23) {
-                this.loadedDataList[i].difference = Math.floor(diffInMin / (60*24)) + " Days Ago";
+                this.loadedDataList[i].difference = Math.floor(diffInMin / (60*24)) + " দিন পূর্বে";
               } else {
-                this.loadedDataList[i].difference = Math.floor(diffInMin / 60) + " Hours Ago";
+                this.loadedDataList[i].difference = Math.floor(diffInMin / 60) + " ঘন্টা পূর্বে";
               }
 
             } else {
-              this.loadedDataList[i].difference = Math.ceil(diffInMin) + " Min Ago";
+              this.loadedDataList[i].difference = Math.ceil(diffInMin) + "মিনিট পূর্বে";
             }
 
             this.converter =(this.loadedDataList[i].problemEntryDate).split('-');
             if(parseInt(this.converter[1]) ==1){
-              this.loadedDataList[i].dateOfQuestion1 =this.converter[0]+' Jan '+this.converter[2];
+              this.loadedDataList[i].dateOfQuestion1 =this.converter[0]+' জানুয়ারী '+this.converter[2];
             }else if(parseInt(this.converter[1]) ==2){
-              this.loadedDataList[i].dateOfQuestion1 =this.converter[0]+' Feb '+this.converter[2];
+              this.loadedDataList[i].dateOfQuestion1 =this.converter[0]+' ফেব্রুয়ারী '+this.converter[2];
             }else if(parseInt(this.converter[1]) ==3){
-              this.loadedDataList[i].dateOfQuestion1 =this.converter[0]+' Mar '+this.converter[2];
+              this.loadedDataList[i].dateOfQuestion1 =this.converter[0]+' মার্চ '+this.converter[2];
             }else if(parseInt(this.converter[1]) ==4){
-              this.loadedDataList[i].dateOfQuestion1 =this.converter[0]+' Apr '+this.converter[2];
+              this.loadedDataList[i].dateOfQuestion1 =this.converter[0]+' এপ্রিল '+this.converter[2];
             }else if(parseInt(this.converter[1]) ==5){
-              this.loadedDataList[i].dateOfQuestion1 =this.converter[0]+' May '+this.converter[2];
+              this.loadedDataList[i].dateOfQuestion1 =this.converter[0]+' মে '+this.converter[2];
             }else if(parseInt(this.converter[1]) ==6){
-              this.loadedDataList[i].dateOfQuestion1 =this.converter[0]+' Jun '+this.converter[2];
+              this.loadedDataList[i].dateOfQuestion1 =this.converter[0]+' জুন '+this.converter[2];
             }else if(parseInt(this.converter[1]) ==7){
-              this.loadedDataList[i].dateOfQuestion1 =this.converter[0]+' Jul '+this.converter[2];
+              this.loadedDataList[i].dateOfQuestion1 =this.converter[0]+' জুলাই '+this.converter[2];
             }else if(parseInt(this.converter[1]) ==8){
-              this.loadedDataList[i].dateOfQuestion1 =this.converter[0]+' Aug '+this.converter[2];
+              this.loadedDataList[i].dateOfQuestion1 =this.converter[0]+' আগস্ট '+this.converter[2];
             }else if(parseInt(this.converter[1]) ==9){
-              this.loadedDataList[i].dateOfQuestion1 =this.converter[0]+' Sep '+this.converter[2];
+              this.loadedDataList[i].dateOfQuestion1 =this.converter[0]+' সেপ্টেম্বর '+this.converter[2];
             }else if(parseInt(this.converter[1]) ==10){
-              this.loadedDataList[i].dateOfQuestion1 =this.converter[0]+' Oct '+this.converter[2];
+              this.loadedDataList[i].dateOfQuestion1 =this.converter[0]+' অক্টোবর '+this.converter[2];
             }else if(parseInt(this.converter[1]) ==11){
-              this.loadedDataList[i].dateOfQuestion1 =this.converter[0]+' Nov '+this.converter[2];
+              this.loadedDataList[i].dateOfQuestion1 =this.converter[0]+' নভেম্বর '+this.converter[2];
             }else if(parseInt(this.converter[1]) ==12){
-              this.loadedDataList[i].dateOfQuestion1 =this.converter[0]+' Dec '+this.converter[2];
+              this.loadedDataList[i].dateOfQuestion1 =this.converter[0]+' ডিসেম্বর '+this.converter[2];
             }
 
           }

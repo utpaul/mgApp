@@ -20,7 +20,7 @@ export class GardenCaringPage {
 
   ionViewDidEnter(){
     this.loadedList =[];
-    this.l2nHttp.getRequest('my-garden-caring','ডাটা লোড করা হচ্ছে...').then(
+    this.l2nHttp.getRequest('my-garden-caring','তথ্য আহরিত হচ্ছে...').then(
       data => {
         this.loadedList =data;
         for(let i=0; i<this.loadedList.length;i++){
