@@ -24,7 +24,6 @@ export class HomePage {
     this.imageUrl =API_CONFIG.misBase4;
   }
 
-
   ionViewDidEnter(){
 
     this.l2nHttp.getRequest('public-question','তথ্য আহরিত হচ্ছে...')

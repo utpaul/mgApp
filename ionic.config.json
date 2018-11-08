@@ -1,6 +1,8 @@
 {
   "name": "MGApp",
-  "app_id": "",
+  "integrations": {
+    "cordova": {}
+  },
   "proxies": [
     {
       "path": "/api",
@@ -8,7 +10,5 @@
     }
   ],
   "type": "ionic-angular",
-  "integrations": {
-    "cordova": {}
-  }
+  "pro_id": "d201d0b2"
 }
