@@ -26,7 +26,6 @@ export class AudioInputComponent implements ControlValueAccessor, OnDestroy {
 
     private file: MediaObject;
     private isPlaying: boolean = false;
-
     constructor(public modalCtrl: ModalController, private fs: File, private media: MediaPlugin) {
 
     }
